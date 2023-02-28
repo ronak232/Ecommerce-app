@@ -1,0 +1,18 @@
+// Base Files
+@import "../Sass/Default/global.scss";
+@import "../Sass/Default/mixins.scss";
+@import "../Sass/Default/variables.scss";
+
+// Mains scss files
+@import "../Sass/Components/navbar";
+@import "../Sass/Components/shop";
+@import "../Sass/Components/spinner";
+@import "../Sass/Components/slider";
+@import "../Sass/Components/cart";
+@import "../Sass/Components/logoslider";
+@import "../Sass/Components/footer";
+@import "../Sass/Components/listedproducts";
+@import "../Sass/Components/account";
+@import "../Sass/Components/blogs";
+@import "../Sass/Components/pages";
+@import "../Sass/Components/rating";

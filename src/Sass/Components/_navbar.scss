@@ -1,0 +1,240 @@
+.main-navbar {
+  width: 100%;
+  // box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.16);
+  transition: all 0.6ms ease-in-out;
+  z-index: 999;
+  position: relative;
+
+  &-container {
+    @include container(flex, space-between, center);
+    flex-direction: row;
+    @include devices(tablet) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &-logo {
+    display: block;
+    padding: 12px 0;
+    max-width: 140px;
+    // margin-left: 16px;
+    @include devices(tablet) {
+    }
+
+    @include devices(desktop) {
+      width: 10%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &-search {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    color: #4b566b;
+    display: none;
+
+    &-icon {
+      position: absolute;
+      transform: translateY(10px);
+      margin-left: 10px;
+      font-size: 21px;
+    }
+    &-bar {
+      width: 80%;
+      padding: 11px 14px 11px 38px;
+      font-size: 15px;
+      @include border(1px solid #dae1e7, 4px);
+    }
+
+    @include devices(desktop){
+      display: block;
+    }
+  }
+
+  &-toolbar {
+    &-container {
+      @include container(flex, space-between, center);
+    }
+  }
+
+  &-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    @include devices(tablet) {
+      width: 80%;
+      position: relative;
+      flex-direction: row;
+      justify-content: space-between;
+      // display: none;
+    }
+
+    &-list {
+      display: none;
+      @include devices(desktop) {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        border: 0;
+      }
+
+      &-items {
+        border-bottom: 2px solid rgb(182 212 235);
+        font-size: 16px;
+        padding: 16px;
+        width: 100%;
+
+        @include devices(tablet) {
+          border: 0;
+        }
+      }
+
+      &-item {
+        color: $black-color;
+        font-family: $Noto;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &-productCart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 16px;
+    font-family: $openSans;
+    // width: 100%;
+  }
+  &-user {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $fade-grey;
+    margin-right: 10px;
+
+    &-icons {
+      font-size: 24px;
+      color: $fade-grey;
+    }
+
+    &-text {
+      padding-left: 12px;
+      display: none;
+      @include devices(desktop) {
+        display: block;
+      }
+    }
+  }
+  &-cart-item {
+    position: relative;
+    // color: $blue-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16px;
+
+    &-number {
+      position: absolute;
+      top: -4px;
+      left: 28px;
+      color: white;
+      background-color: #fe696a;
+      border-radius: 50%;
+      padding: 0 6px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-text {
+      display: none;
+      font-size: 14px;
+      font-weight: 400;
+      @include devices(desktop) {
+        display: block;
+      }
+
+      &-arrow {
+        position: absolute;
+        top: 20px;
+        right: -14px;
+        font-size: 20px;
+        padding-left: 3px;
+      }
+    }
+  }
+}
+
+.navbar-toggle {
+  display: block;
+  padding-right: 20px;
+  padding-left: 17px;
+  // position: absolute;
+  // top: 10px;
+  // right: 0;
+  color: $white-color;
+  font-size: 40px;
+
+  @include devices(desktop) {
+    display: none;
+  }
+
+  &-btn {
+    // position: absolute;
+    // top: 0px;
+    // right: 23px;
+    font-size: 32px;
+    background: transparent;
+    color: $black-color;
+    border: 0;
+  }
+}
+
+.smooth {
+  transition: all 0.56s ease-in-out;
+}
+
+// Mobile View
+.navbar-expand {
+  height: 100%;
+  // transition: all 0.6ms ease-in-out;
+  &-content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: $white-color;
+    flex-direction: column;
+    // @include devices(desktop) {
+    //   display: none;
+    // }
+    &-list {
+      width: 100%;
+      padding: 10px;
+
+      &-items {
+        border-bottom: 2px solid rgba(136, 134, 134, 0.621);
+        color: $white-color;
+        font-family: $Noto;
+        font-size: 18px;
+        padding: 16px;
+      }
+    }
+  }
+}
+
+.cart-style {
+  background-color: #f3f5f9;
+  border-radius: 18px;
+  font-size: 40px;
+  padding: 10px;
+  margin-right: 14px;
+  cursor: pointer;
+}

@@ -1,0 +1,144 @@
+.footer {
+  @include Colors($white-color, $light-black);
+  padding: 55px 0;
+  z-index: 99;
+
+  &-container {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 12px;
+    @include devices(tablet) {
+      @include containerGrid(grid, (3, 1fr));
+    }
+  }
+  &--text {
+    // padding: 0 16px;
+    &-widgets {
+      margin-bottom: 12px;
+      &-list {
+        line-height: 1.8;
+        &-items {
+          &-links {
+            font-size: 14px;
+            font-weight: normal;
+            color: rgba(255, 255, 255, 0.65);
+
+            &:hover {
+              color: $white-color;
+              transition: all 0.8s ease;
+            }
+          }
+        }
+      }
+    }
+    &-heading {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+  }
+  &-connect {
+    padding: 0;
+
+    @include devices(tablet){
+      padding: 0 16px;
+    }
+    &-content {
+      padding-bottom: 45px;
+    }
+    &-form {
+      display: flex;
+      align-items: center;
+      margin-top: 14px;
+      &-control {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        &-mail {
+          position: absolute;
+          z-index: 999;
+          color: $light-grey;
+          top: 14px;
+          left: 0;
+          margin-left: 12px;
+        }
+      }
+      input {
+        padding: 10px 0px;
+        font-size: 16px;
+        @include border(0, 6px 0px 0px 4px);
+
+        @include devices(desktop) {
+          padding: 12px 60px 12px 36px;
+        }
+      }
+
+      &-text {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0px;
+        width: 100%;
+
+        @include devices(tablet) {
+          width: 90%;
+        }
+      }
+    }
+
+    &-app {
+      &-content {
+        display: flex;
+        align-items: center;
+        padding-top: 14px;
+        flex-wrap: wrap;
+
+        &-apple {
+          margin-bottom: 8px;
+          margin-right: 8px;
+        }
+
+        &-play {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}
+
+.apple-btn {
+  display: inline-block;
+  background-position: center left 0.75rem;
+  background-color: #2b3445;
+  @include border(0, 6px);
+  padding: 8px 13px 8px 50px;
+  background-image: url(../../Images/apple.svg);
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1.5rem;
+  span {
+    display: block;
+    color: $white-color;
+    font-size: 12px;
+  }
+}
+
+.play-btn {
+  display: inline-block;
+  @include border(0, 6px);
+  padding: 8px 13px 8px 50px;
+  // margin-left: 10px;
+  background-image: url(../../Images/play.svg);
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1.5rem;
+  background-position: center left 0.75rem;
+  background-color: #2b3445;
+  span {
+    display: block;
+    color: $white-color;
+    font-size: 12px;
+  }
+
+  @include devices(tablet) {
+    // margin-top: 6px;
+    margin-left: 0;
+  }
+}

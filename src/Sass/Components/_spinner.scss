@@ -1,0 +1,13 @@
+.product {
+  &__loader {
+    
+    background: transparent;
+
+    &--img{
+        max-height: 40px;
+        max-width: 100px;
+
+    }
+  }
+
+}

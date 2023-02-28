@@ -1,0 +1,213 @@
+{
+  "com": [
+    {
+      "id": 1,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/19.png"
+    },
+    {
+      "id": 2,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/20.png"
+    },
+    {
+      "id": 3,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/13.png"
+    },
+    {
+      "id": 4,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/14.png"
+    },
+    {
+      "id": 5,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/15.png"
+    },
+    {
+      "id": 6,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/16.png"
+    },
+    {
+      "id": 7,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/17.png"
+    },
+    {
+      "id": 8,
+      "imgUrl": "https://cartzilla.createx.studio/img/shop/brands/18.png"
+    }
+  ],
+
+  "footer": {
+    "shopDepartment": [
+      {
+        "id": 1,
+        "title": "Sneakers & Athletic"
+      },
+      {
+        "id": 2,
+        "title": "Athletic Apparel"
+      },
+      {
+        "id": 3,
+        "title": "Sandals"
+      },
+      {
+        "id": 4,
+        "title": "Jeans"
+      },
+      {
+        "id": 5,
+        "title": "Shirts & Tops"
+      },
+      {
+        "id": 6,
+        "title": "Shorts"
+      },
+      {
+        "id": 7,
+        "title": "T-Shirts"
+      },
+      {
+        "id": 8,
+        "title": "Watches"
+      },
+      {
+        "id": 9,
+        "title": "Swimwear"
+      },
+      {
+        "id": 10,
+        "title": "Clogs & Mules"
+      },
+      {
+        "id": 11,
+        "title": "Bags & Wallets"
+      },
+      {
+        "id": 12,
+        "title": "Sunglasses & Eyewear"
+      }
+    ],
+    "Account": [
+      {
+        "id": 1,
+        "title": "Your account"
+      },
+      {
+        "id": 2,
+        "title": "Shipping rates & policies"
+      },
+      {
+        "id": 3,
+        "title": "Order tracking"
+      },
+      {
+        "id": 4,
+        "title": "Delivery info"
+      },
+      {
+        "id": 5,
+        "title": "Taxes & fees"
+      },
+      {
+        "id": 6,
+        "title": "About us"
+      }
+    ],
+    "About": [
+      {
+        "id": 1,
+        "title": "About company"
+      },
+      {
+        "id": 2,
+        "title": "Our team"
+      },
+      {
+        "id": 3,
+        "title": "Careers"
+      },
+      {
+        "id": 4,
+        "title": "News"
+      }
+    ]
+  },
+  "Products": {
+    "bestseller": [
+      {
+        "id": 1,
+        "img": "https://cartzilla.createx.studio/img/shop/cart/widget/05.jpg",
+        "title": "Wireless Bluetooth Headphones",
+        "price": "$100.00"
+      },
+      {
+        "id": 2,
+        "img": "https://cartzilla.createx.studio/img/shop/cart/widget/06.jpg",
+        "title": "Cloud Security Camera",
+        "price": "$100.00"
+      },
+      {
+        "id": 3,
+        "img": "https://cartzilla.createx.studio/img/shop/cart/widget/07.jpg",
+        "title": "Android Smartphone S10",
+        "price": "$100.00"
+      },
+      {
+        "id": 4,
+        "img": "https://cartzilla.createx.studio/img/shop/cart/widget/08.jpg",
+        "title": "Android Smart TV Box",
+        "price": "$100.00"
+      }
+    ],
+    "newArrivals": [
+      {
+        "id": 1,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/06.jpg",
+        "title": "Monoblock Desktop PC",
+        "price": "$100.00"
+      },
+      {
+        "id": 2,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/07.jpg",
+        "title": "Laserjet Printer All-in-One",
+        "price": "$100.00"
+      },
+      {
+        "id": 3,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/08.jpg",
+        "title": "Console Controller Charger",
+        "price": "$100.00"
+      },
+      {
+        "id": 4,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/09.jpg",
+        "title": "Smart Watch Series 5, Aluminium",
+        "price": "$100.00"
+      }
+    ],
+    "topRated": [
+      {
+        "id": 1,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/10.jpg",
+        "title": "Android Smartphone S9",
+        "price": "$100.00"
+      },
+      {
+        "id": 2,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/11.jpg",
+        "title": "Wireless Bluetooth Headphones",
+        "price": "$100.00"
+      },
+      {
+        "id": 3,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/12.jpg",
+        "title": "360 Degrees Camera",
+        "price": "$100.00"
+      },
+      {
+        "id": 4,
+        "img": "https://cartzilla.createx.studio/img/shop/widget/13.jpg",
+        "title": "Digital Camera 40MP",
+        "price": "$100.00"
+      }
+    ]
+  }
+}

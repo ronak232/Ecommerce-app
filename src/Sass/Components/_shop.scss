@@ -1,0 +1,136 @@
+.products {
+  margin-top: 35px;
+  margin-bottom: 70px;
+  min-height: calc(100vh - 50vh - 56px);
+
+  &__main-container {
+   @include container(flex, center, baseline);
+  }
+
+  &__filter-category {
+    text-align: center;
+    width: 20%;
+
+    &--options {
+      width: 100%;
+    }
+  }
+
+  &__list {
+    @include container(flex, flex-start, center);
+    flex-wrap: wrap;
+    width: 100%;
+    // @include devices(tablet) {
+    //   column-gap: 70px;
+    // }
+    // @include devices(desktop) {
+    //   column-gap: 80px;
+    // }
+    // flex-direction: column;
+    &--cards {
+      width: 100%;
+      margin: 16px 0;
+      background: $white-color;
+      cursor: pointer;
+      color: $black-color;
+      padding-right: 12px;
+
+      @include devices(tablet) {
+        width: 25%;
+      }
+
+      &-content {
+        padding: 14px 10px;
+        margin: auto;
+        &:hover {
+          box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.37);
+          border-radius: 9px;
+          transition: all 0.7s ease;
+        }
+      }
+      &-image {
+        display: block;
+        width: 100%;
+        // max-height: 200px;
+        img {
+          width: 100%;
+          object-fit: contain;
+          max-height: 100%;
+          height: 200px;
+        }
+      }
+      &-category {
+        font-size: 12px;
+        text-transform: capitalize;
+        color: $light-black;
+        font-weight: 600;
+      }
+
+      &-title {
+        text-align: left;
+        font-family: $Noto;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 10px;
+
+        @include devices(tablet) {
+          font-size: 12px;
+        }
+        // padding: 12px 0px;
+      }
+
+      &-price {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      &-text {
+        &-price {
+          color: rgb(78, 84, 200);
+          font-size: 14px;
+          opacity: 1;
+        }
+      }
+
+      &-cart-btn {
+        color: $white-color;
+        text-align: center;
+      }
+    }
+  }
+
+  &__filter--category {
+    padding-bottom: 30px;
+    &-container {
+      @include container(flex, space-around, center);
+    }
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  &__body {
+    padding: 28px 10px;
+  }
+  &__category {
+    font-size: 16px;
+    text-transform: capitalize;
+    padding-bottom: 12px;
+  }
+
+  &__loader {
+    @include container(flex, center, center);
+    width: 100%;
+    margin-top: 12px;
+    &-btn {
+      background: rgb(255 241 241);
+      color: $black-color;
+    }
+  }
+}
+
+.cart {
+  margin-right: 10px;
+}

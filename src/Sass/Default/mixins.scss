@@ -1,0 +1,63 @@
+@use "sass:list";
+$simple-gradient: linear-gradient(187deg, #659be79c, transparent);
+$complex-gradient: linear-gradient(to top left, blue);
+
+@mixin Container() {
+  max-width: 1320px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+@mixin container($display, $justify-content, $align-items) {
+  max-width: 1320px;
+  margin: auto;
+  display: $display;
+  justify-content: $justify-content;
+  padding: 0 16px;
+  align-items: $align-items;
+}
+
+@mixin containerGrid($display, $gridColumn) {
+  max-width: 1320px;
+  margin: auto;
+  padding: 0 16px;
+  display: $display;
+  grid-template-columns: repeat($gridColumn);
+}
+
+@mixin border($border, $radius) {
+  border: $border;
+  border-radius: $radius;
+  // border-bottom: $border;
+}
+
+@mixin Colors($color, $bg) {
+  @if list.length($bg) == 1 {
+    background: $bg;
+  } @else {
+    background: $complex-gradient;
+  }
+
+  color: $color;
+  // background-color: $bgColor;
+}
+
+@mixin devices($breakpoint) {
+  //the name of the mixin is devices
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  }
+}

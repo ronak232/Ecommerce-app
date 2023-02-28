@@ -1,0 +1,36 @@
+.logo-slider {
+  margin-bottom: 20px;
+  &-container {
+    @include container(flex, center, center);
+    .swiper-wrapper {
+      align-items: center;
+      .logo-slider-wrapper {
+        border: 1px solid #e3e9ec;
+        padding: 50px;
+
+        &-img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    //   // @include container(flex, center, center);
+    //   // flex-direction: row;
+    //   border: 2px solid red;
+    //   height: 170px;
+    //   display: flex;
+    //   align-items: center;
+    //   max-width: 1320px;
+    //   margin: auto;
+    // }
+    // &-wrapper {
+    //  height: 100%;
+    //   // height: 150px !important;
+    //   border: 1px solid;
+    //   &-img {
+    //     height: 100%;
+    //     // object-fit: cover;
+    //   }
+    // }
+  }
+}
