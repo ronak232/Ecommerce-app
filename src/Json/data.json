@@ -209,5 +209,25 @@
         "price": "$100.00"
       }
     ]
-  }
+  },
+  "Blog": [
+    {
+      "id": 1,
+      "imgUrl": "https://cartzilla.createx.studio/img/blog/featured/01.jpg",
+      "title": "Healthy Food - New Way of Living",
+      "label":"Aug 16"
+    },
+    {
+      "id": 2,
+      "imgUrl": "https://cartzilla.createx.studio/img/blog/featured/02.jpg",
+      "title": "Online Payment Security Tips for Shoppers",
+      "label":"Sep 16"
+    },
+    {
+      "id": 3,
+      "imgUrl": "https://cartzilla.createx.studio/img/blog/featured/03.jpg",
+      "title": "We Launched New Store in San Francisco",
+      "label":"June 16"
+    }
+  ]
 }

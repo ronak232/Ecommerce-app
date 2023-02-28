@@ -1,3 +1,49 @@
-.store-blogs{
-    min-height: calc(100vh - 50vh - 20px);
+.blogs {
+  min-height: calc(100vh - 50vh - 20px);
+  padding: 48px 0;
+  &__container {
+    @include container(flex, center, baseline);
+  }
+  &__post {
+    &_slider {
+      display: flex;
+      &-card {
+        border-radius: 8px;
+        &-img {
+          img {
+            width: 100%;
+            border-radius: 10px;
+          }
+        }
+        &-label {
+          position: absolute;
+          right: 27px;
+          top: 16px;
+          padding: 8px 12px;
+          background: rgba(255, 255, 255, 0.45);
+          border-radius: 6px;
+          font-size: 16px;
+          color: $chrome-grey;
+
+          &-clock {
+            margin-right: 4px;
+            padding-top: 3px;
+          }
+        }
+        &-body {
+          padding: 12px 0;
+        }
+        &-link {
+          font-size: 18px;
+          color: $chrome-grey;
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    &_slide {
+      border: 1px solid black;
+    }
+  }
 }
