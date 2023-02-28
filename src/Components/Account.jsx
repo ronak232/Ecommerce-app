@@ -63,10 +63,12 @@ function Account() {
                     </div>
                     <div className="btn-red">
                       <Button
-                      bgColor=""
-                      borderRadius=""
-                      
-                      >Submit</Button>
+                      bgColor="#fe4042;"
+                      borderRadius="5px"
+                      Color="white"
+                      padding="14px"
+                      fontSize="18px"
+                      >Sign In</Button>
                     </div>
                   </form>
                 </div>

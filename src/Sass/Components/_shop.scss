@@ -5,11 +5,19 @@
 
   &__main-container {
    @include container(flex, center, baseline);
+   flex-direction: column;
+   @include devices(tablet){
+    flex-direction: row;
+   }
   }
 
   &__filter-category {
     text-align: center;
-    width: 20%;
+    width: 100%;
+
+    @include devices(tablet){
+      width: 20%;
+    }
 
     &--options {
       width: 100%;

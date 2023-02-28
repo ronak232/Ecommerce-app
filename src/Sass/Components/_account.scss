@@ -8,6 +8,7 @@
   &__content {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    padding: 34px 0;
 
     @include devices(tablet){
       grid-template-columns: repeat(2, 1fr);
@@ -15,6 +16,7 @@
   }
 
   &__card {
+    margin-right: 10px;
     &-body {
       box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.15);
       border-radius: 6px;
@@ -40,6 +42,7 @@
   }
   &__form{
       &-control{
+        padding: 20px 0;
         &-validation{
           position: relative;
 
@@ -62,6 +65,7 @@
           padding: 10px 40px;
           font-size: 16px;
           margin-top: 8px;
+          margin-bottom: 12px;
          }
         }
       }
