@@ -64,10 +64,11 @@ function App() {
 
   return (
     <div
-      style={{
-        backgroundColor: darkMode ? "#222" : "white",
-        color: darkMode && "white",
-      }}
+      className={darkMode ? "dark" : ""}
+      // style={{
+      //   backgroundColor: darkMode ? "#222" : "white",
+      //   color: darkMode && "whit",
+      // }}
     >
       <Router>
         <NavBar count={cartItems.length} />
