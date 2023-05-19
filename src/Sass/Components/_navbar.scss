@@ -100,7 +100,6 @@
       }
 
       &-item {
-        color: $black-color;
         font-family: $Noto;
         font-size: 18px;
       }
@@ -119,12 +118,10 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: $fade-grey;
     margin-right: 10px;
 
     &-icons {
       font-size: 24px;
-      color: $fade-grey;
     }
 
     &-text {
@@ -231,7 +228,6 @@
 }
 
 .cart-style {
-  background-color: #f3f5f9;
   border-radius: 18px;
   font-size: 40px;
   padding: 10px;

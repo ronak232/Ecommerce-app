@@ -11,6 +11,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import Store from "./Store";
 
 function Home() {
+ 
   return (
     <>
       <section>

@@ -10,7 +10,7 @@
     grid-template-columns: repeat(1, 1fr);
     padding: 34px 0;
 
-    @include devices(tablet){
+    @include devices(tablet) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -40,35 +40,33 @@
       }
     }
   }
-  &__form{
-      &-control{
-        padding: 20px 0;
-        &-validation{
-          position: relative;
+  &__form {
+    &-control {
+      padding: 20px 0;
+      &-validation {
+        position: relative;
 
-          &-mail{
-            position: absolute;
-            left: 0;
-            top: 20px;
-            margin-left: 10px;
-            
-          }
-          &-password{
-            position: absolute;
-            left: 0;
-            top: 20px;
-            margin-left: 10px;
-            
-          }
-         &-text{
+        &-mail {
+          position: absolute;
+          left: 0;
+          top: 20px;
+          margin-left: 10px;
+        }
+        &-password {
+          position: absolute;
+          left: 0;
+          top: 20px;
+          margin-left: 10px;
+        }
+        &-text {
           width: 100%;
           padding: 10px 40px;
           font-size: 16px;
           margin-top: 8px;
           margin-bottom: 12px;
-         }
         }
       }
+    }
   }
 }
 

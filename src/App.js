@@ -10,8 +10,13 @@ import Pages from "./Components/Pages";
 import Cart from "./ReuseComp/CartComponents/Cart";
 // import LogoSlider from "./Components/LogoSlider";
 import Footer from "./Components/Footer";
+import Themetoggle from "./ReuseComp/DarkModeToggle/Themetoggle";
+import { ThemeContext } from "./hooks/ContextApi";
+import { useContext } from "react";
 
 function App() {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const [cartItems, setCartItems] = useState(
     // Check  for the cart have items in it or not....
     JSON.parse(localStorage.getItem("cartProducts")) || []
@@ -58,9 +63,15 @@ function App() {
   //
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: darkMode ? "#222" : "white",
+        color: darkMode && "white",
+      }}
+    >
       <Router>
         <NavBar count={cartItems.length} />
+        <Themetoggle />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/account" element={<Account />} />
@@ -87,7 +98,7 @@ function App() {
 
         {<Footer />}
       </Router>
-    </>
+    </div>
   );
 }
 

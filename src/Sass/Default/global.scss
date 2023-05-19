@@ -12,6 +12,7 @@ body {
   position: relative;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
+  background: white;
   // min-height: 100vh;
 }
 
@@ -21,9 +22,8 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
-  color: black;
   transition: color .25s ease-in-out;
-  // width: 100%;
+  color: inherit;
 }
 
 li {

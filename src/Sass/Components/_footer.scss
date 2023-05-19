@@ -38,7 +38,7 @@
   &-connect {
     padding: 0;
 
-    @include devices(tablet){
+    @include devices(tablet) {
       padding: 0 16px;
     }
     &-content {

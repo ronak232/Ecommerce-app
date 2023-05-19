@@ -22,8 +22,8 @@
     margin: 0;
     margin-left: 0;
     overflow: hidden;
-    
-    @include devices(tablet){
+
+    @include devices(tablet) {
       text-align: start;
     }
 
@@ -82,15 +82,15 @@
     margin: auto;
     width: 40%;
 
-    @include devices(tablet){
+    @include devices(tablet) {
       margin-right: 0;
       margin-left: 0;
       flex-grow: 0;
       width: 30%;
     }
-    
-    &:hover{
-      background:#fe4042;
+
+    &:hover {
+      background: #fe4042;
       transition: color 0.4ms ease-in;
     }
   }
@@ -149,6 +149,7 @@
 
     &-text {
       padding: 35px 10px;
+      color: $black-color;
     }
     &-cam {
       width: 100%;

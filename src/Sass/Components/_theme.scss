@@ -1,0 +1,42 @@
+.toggle {
+  position: fixed;
+  top: 20%;
+  right: -45px;
+  z-index: 999;
+  cursor: pointer;
+  &-theme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 4px;
+    background-color: rgb(222 222 222);
+    border-radius: 14px;
+  }
+  &-icon {
+    font-size: 16px;
+    margin: 0 8px;
+  }
+  &-btn {
+    position: absolute;
+    background-color: $black-color;
+    border: 0;
+    border-radius: 50%;
+    min-height: 28px;
+    padding: 10px 14px;
+    transition: all 0.45s ease-in-out;
+    cursor: pointer;
+  }
+  &:hover{
+    animation: slideToggle 0.2s forwards ease-in;
+  }
+}
+
+@keyframes slideToggle {
+   0%{
+     transform: translateX(0px);
+
+   }
+   100%{
+     transform: translateX(-30px);
+   }
+}
