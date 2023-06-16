@@ -16,7 +16,7 @@ function ProductDetails({ allProducts, handleAddProduct }) {
   return (
     <div>
       <div>
-        <img src={matchedProduct.images[0]} alt="" />
+        <img className="img" src={matchedProduct.images[0]} alt="" />
       </div>
       <h1>{matchedProduct.title}</h1>
       <p>{matchedProduct.description}</p>
