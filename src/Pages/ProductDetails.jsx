@@ -24,7 +24,7 @@ function ProductDetails({ allProducts, handleAddProduct }) {
       <Button
         bgColor="#fe696a"
         width="100%"
-        borderRadius="6px"
+        borderRadius="16px"
         boxShadow="10"
         padding="8px"
         onClick={() => handleAddProduct(matchedProduct)}
