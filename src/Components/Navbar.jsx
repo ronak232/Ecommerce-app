@@ -7,7 +7,7 @@ import { RxCross1 } from "react-icons/rx";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
 
-function NavBar({ count }) {
+function NavBar({ count, cartItems }) {
   const [mobileToggle, setmobileToggle] = useState(false);
   // const [itemsQuan]
   const toggleHandler = () => {
@@ -33,11 +33,6 @@ function NavBar({ count }) {
                 name="search"
                 placeholder="Search for products"
               />
-              {/* <div>
-                <select name="dropdown" id="">
-
-                </select>
-              </div> */}
             </div>
             <div className="main-navbar-productCart">
               <div className="navbar-toggle" onClick={toggleHandler}>
@@ -63,7 +58,10 @@ function NavBar({ count }) {
                 <span className="main-navbar-cart-item-number">{count}</span>
                 <div className="main-navbar-cart-item-text">
                   <small>My Cart</small>
-                  <h3>$1200</h3>
+                  <h3>$
+                  {cartItems
+                    .map((item) => item.price * item.quantity)
+                    .reduce((total, value) => total + value, 0)}</h3>
                   <MdArrowDropDown className="main-navbar-cart-item-text-arrow" />
                 </div>
               </Link>
