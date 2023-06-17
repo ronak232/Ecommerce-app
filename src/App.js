@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/Navbar";
 import Home from "./Components/Home";
@@ -8,11 +9,11 @@ import Blog from "./Components/Blog";
 import Shop from "./Components/Shop";
 import Pages from "./Components/Pages";
 import Cart from "./ReuseComp/CartComponents/Cart";
-// import LogoSlider from "./Components/LogoSlider";
 import Footer from "./Components/Footer";
 import Themetoggle from "./ReuseComp/DarkModeToggle/Themetoggle";
 import { ThemeContext } from "./hooks/ContextApi";
 import { useContext } from "react";
+import ProductDetails from "./Pages/ProductDetails";
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -21,7 +22,10 @@ function App() {
     // Check  for the cart have items in it or not....
     JSON.parse(localStorage.getItem("cartProducts")) || []
   );
-  // console.log(cartItems);
+  const [allProducts, setAllProducts] = useState([]);
+  const [loader, setLoader] = useState(false);
+
+  const [cartfilter, setcartFilter] = useState([]);
 
   const handleAddProduct = (product) => {
     // console.log(product);
@@ -60,7 +64,27 @@ function App() {
     );
   };
 
-  //
+  // const AllData = () => {
+  //   setAllProducts(data);
+  // }
+
+  const APICall = () => {
+    axios
+    .get("https://dummyjson.com/products")
+    .then((response) => response.data.products)
+    .then((data) => {
+      setAllProducts(data);      
+      setcartFilter(data);
+      setLoader(true);
+    })
+    .catch((error) => {
+      alert(error);
+    });
+  }  
+
+  useEffect(() => {
+    APICall();
+  }, [loader]);
 
   return (
     <div
@@ -71,15 +95,15 @@ function App() {
       // }}
     >
       <Router>
-        <NavBar count={cartItems.length} />
+        <NavBar count={cartItems.length} cartItems={cartItems} />
         <Themetoggle />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home msg="HELLO" allProducts={allProducts} />} />
           <Route path="/account" element={<Account />} />
           <Route
             path="/shop"
             element={
-              <Shop handleAddProduct={handleAddProduct} cartItems={cartItems} />
+              <Shop handleAddProduct={handleAddProduct} cartItems={cartItems} allProducts={allProducts} />
             }
           />
           <Route path="/blog" element={<Blog />} />
@@ -95,6 +119,7 @@ function App() {
               />
             }
           />
+        <Route path="/details/:id" element={<ProductDetails allProducts={allProducts} handleAddProduct={handleAddProduct} />} />
         </Routes>
 
         {<Footer />}

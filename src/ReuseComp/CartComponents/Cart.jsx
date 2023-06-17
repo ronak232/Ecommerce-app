@@ -4,7 +4,6 @@ import { Button } from "../../Styles/Button.style";
 import { SlArrowLeft } from "react-icons/sl";
 
 function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
-
   return (
     <div>
       <div className="cart-product">

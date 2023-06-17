@@ -16,7 +16,7 @@ function ProductDetails({ allProducts, handleAddProduct }) {
   return (
     <div>
       <div>
-        <img src={matchedProduct.images[0]} alt="" />
+        <img className="img" src={matchedProduct.images[0]} alt="" />
       </div>
       <h1>{matchedProduct.title}</h1>
       <p>{matchedProduct.description}</p>
@@ -24,7 +24,7 @@ function ProductDetails({ allProducts, handleAddProduct }) {
       <Button
         bgColor="#fe696a"
         width="100%"
-        borderRadius="6px"
+        borderRadius="16px"
         boxShadow="10"
         padding="8px"
         onClick={() => handleAddProduct(matchedProduct)}
