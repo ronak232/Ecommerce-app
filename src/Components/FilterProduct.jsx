@@ -1,26 +1,23 @@
 // import React, { useEffect, useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../Styles/Button.style";
+import { BsCartFill } from "react-icons/bs";
 
-function FilterProduct({
-  cartCategory,
-  setcartfilter,
-  allProducts,
-  setCartcategory,
-}) {
+function FilterProduct({ setcartFilter, allProducts }) {
+  const [cartCategory, setCartcategory] = useState("");
+
   useEffect(() => {
     if (cartCategory === "") {
-      setcartfilter(allProducts);
+      setcartFilter(allProducts);
       return;
     }
+
     const filtered = allProducts.filter(
       (item) => item.category.includes(cartCategory)
-      // console.log(item.category)
     );
-    setcartfilter(filtered);
 
-    // return filtered();
-  }, [allProducts, cartCategory, setcartfilter]);
+    setcartFilter(filtered);
+  }, [allProducts, cartCategory, setcartFilter]);
 
   return (
     <aside className="products__filter-category">

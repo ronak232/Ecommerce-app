@@ -10,11 +10,11 @@ import LogoSlider from "./LogoSlider";
 import { RiArrowUpSLine } from "react-icons/ri";
 import Store from "./Store";
 
-function Home({msg, allProducts}) {
+function Home({ handleAddProduct, allProducts, cartFilter, setcartFilter}) {
 
-  // console.log(allProducts)
+  // console.log(allProducts);
  
-  return (
+  return ( 
     <>
       <section>
         <div className="product__banner">
@@ -170,7 +170,7 @@ function Home({msg, allProducts}) {
         </div>
         {/* <span className="shop-link-divider"></span> */}
 
-        <Shop disableFilterOptions={true} msg={msg} allProducts={allProducts} />
+        <Shop allProducts={allProducts} cartFilter={cartFilter} setcartFilter={setcartFilter} disableFilterOptions={true} handleAddProduct={handleAddProduct} />
       </div>
       <LogoSlider />
       <Store />

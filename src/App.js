@@ -23,13 +23,25 @@ function App() {
     JSON.parse(localStorage.getItem("cartProducts")) || []
   );
   const [allProducts, setAllProducts] = useState([]);
-  const [loader, setLoader] = useState(false);
+  // const [loader, setLoader] = useState(true);
 
-  const [cartfilter, setcartFilter] = useState([]);
+  const [cartFilter, setcartFilter] = useState([]);
 
   const handleAddProduct = (product) => {
-    // console.log(product);
-    setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    const ifProductPresent = cartItems.find((item) => item.id === product.id);
+    // console.log(ifProductPresent)
+
+    if (ifProductPresent) {
+      // console.log("product is already present");
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id ? { ...ifProductPresent, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+    // console.log(quantity)
   };
 
   // Removing item from
@@ -64,27 +76,23 @@ function App() {
     );
   };
 
-  // const AllData = () => {
-  //   setAllProducts(data);
-  // }
-
   const APICall = () => {
     axios
-    .get("https://dummyjson.com/products")
-    .then((response) => response.data.products)
-    .then((data) => {
-      setAllProducts(data);      
-      setcartFilter(data);
-      setLoader(true);
-    })
-    .catch((error) => {
-      alert(error);
-    });
-  }  
+      .get("https://dummyjson.com/products")
+      .then((response) => response.data.products)
+      .then((data) => {
+        setAllProducts(data);
+        setcartFilter(data);
+        // setLoader(true);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   useEffect(() => {
     APICall();
-  }, [loader]);
+  }, []);
 
   return (
     <div
@@ -98,12 +106,27 @@ function App() {
         <NavBar count={cartItems.length} cartItems={cartItems} />
         <Themetoggle />
         <Routes>
-          <Route path="/" element={<Home msg="HELLO" allProducts={allProducts} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                cartFilter={cartFilter}
+                disableFilterOptions={false}
+                handleAddProduct={handleAddProduct}
+              />
+            }
+          />
           <Route path="/account" element={<Account />} />
           <Route
             path="/shop"
             element={
-              <Shop handleAddProduct={handleAddProduct} cartItems={cartItems} allProducts={allProducts} />
+              <Shop
+                handleAddProduct={handleAddProduct}
+                cartItems={cartItems}
+                cartFilter={cartFilter}
+                setcartFilter={setcartFilter}
+                allProducts={allProducts}
+              />
             }
           />
           <Route path="/blog" element={<Blog />} />
@@ -119,7 +142,15 @@ function App() {
               />
             }
           />
-        <Route path="/details/:id" element={<ProductDetails allProducts={allProducts} handleAddProduct={handleAddProduct} />} />
+          <Route
+            path="/details/:id"
+            element={
+              <ProductDetails
+                allProducts={allProducts}
+                handleAddProduct={handleAddProduct}
+              />
+            }
+          />
         </Routes>
 
         {<Footer />}
