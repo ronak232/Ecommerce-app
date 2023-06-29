@@ -14,14 +14,7 @@ function Shop({
   cartFilter,
   setcartFilter,
 }) {
-  // Loading State
-  // const [loader, setLoader] = useState(true);
-  // Loading More Items State
-  // console.log(allProducts);
   const [visibleItems, setvisibleItems] = useState(8);
-  // console.log(visibleItems);
-
-  // const [cartFilter, setcartFilter] = useState([]);
 
   const showMoreItems = () => {
     setTimeout(() => {
@@ -96,7 +89,11 @@ function Shop({
             })}
 
             {visibleItems < cartFilter.length ? (
-              <MoreIems showMoreItems={showMoreItems} cartFilter={cartFilter} disableButton={true} />
+              <MoreIems
+                showMoreItems={showMoreItems}
+                cartFilter={cartFilter}
+                disableButton={true}
+              />
             ) : (
               <MoreIems
                 showMoreItems={showMoreItems}

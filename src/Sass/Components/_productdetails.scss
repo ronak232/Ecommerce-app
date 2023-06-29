@@ -1,0 +1,21 @@
+.productdetails {
+  &__container {
+    @include container(flex, space-between, center);
+  }
+  &__card {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 70px 0;
+
+    &_img{
+        width: 50%;
+        max-width: 100%;
+        display: block;
+    }
+    &_body{
+        width: 50%;
+    }
+  }
+
+}

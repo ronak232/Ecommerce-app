@@ -12,8 +12,8 @@ function FilterProduct({ setcartFilter, allProducts }) {
       return;
     }
 
-    const filtered = allProducts.filter(
-      (item) => item.category.includes(cartCategory)
+    const filtered = allProducts.filter((item) =>
+      item.category.includes(cartCategory)
     );
 
     setcartFilter(filtered);

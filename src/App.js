@@ -35,7 +35,9 @@ function App() {
       // console.log("product is already present");
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id ? { ...ifProductPresent, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...ifProductPresent, quantity: item.quantity + 1 }
+            : item
         )
       );
     } else {
