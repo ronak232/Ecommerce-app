@@ -7,14 +7,27 @@
     justify-content: space-around;
     width: 100%;
     padding: 70px 0;
+    flex-wrap: wrap;
 
     &_img{
-        width: 50%;
+      width: 50%;
         max-width: 100%;
         display: block;
     }
     &_body{
-        width: 50%;
+      width: 50%;
+    }
+    &_title{
+      padding-bottom: 12px;
+    }
+    @include devices(tablet){
+      flex-wrap: nowrap;
+    }
+    &_btn{
+      width:30%;
+      margin-top: 20px;
+      display: block;
+      margin-right: auto;
     }
   }
 

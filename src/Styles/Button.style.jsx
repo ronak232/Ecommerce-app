@@ -7,7 +7,7 @@ export const Button = styled.button`
   border-radius: ${(props) => props.borderRadius};
   padding: ${(props) => props.padding};
   margin-top: ${(props) => props.marginTop};
-  /* margin-right: 8px; */
+  margin-right:${(props) => props.marginRight}; 
   font-size: ${(props) => props.fontSize};
   width: ${(props) => props.width};
   border: 0;

@@ -32,7 +32,6 @@ function App() {
     // console.log(ifProductPresent)
 
     if (ifProductPresent) {
-      // console.log("product is already present");
       setCartItems(
         cartItems.map((item) =>
           item.id === product.id
@@ -99,10 +98,10 @@ function App() {
   return (
     <div
       className={darkMode ? "dark" : ""}
-      // style={{
-      //   backgroundColor: darkMode ? "#222" : "white",
-      //   color: darkMode && "whit",
-      // }}
+    // style={{
+    //   backgroundColor: darkMode ? "#222" : "white",
+    //   color: darkMode && "whit",
+    // }}
     >
       <Router>
         <NavBar count={cartItems.length} cartItems={cartItems} />
@@ -150,6 +149,8 @@ function App() {
               <ProductDetails
                 allProducts={allProducts}
                 handleAddProduct={handleAddProduct}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
               />
             }
           />
