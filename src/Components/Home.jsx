@@ -1,9 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import "swiper/swiper-bundle.css";
-import "swiper/css";
-import "swiper/css/pagination";
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import Shop from "./Shop";
 import { Link } from "react-router-dom";
 import LogoSlider from "./LogoSlider";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper/modules";
 import data from "../Json/data.json";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 function LogoSlider() {
   // We can use it's core functionality
   // To configue the Slider as we want to it to be
-  SwiperCore.use([Autoplay]);
+  // SwiperCore.use([Autoplay]);
   return (
     <section>
       <div className="logo-slider">
@@ -16,7 +16,7 @@ function LogoSlider() {
           <Swiper
           className="abc"
             tag="div"
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             autoplay={{
               delay: 1500,
               disableOnInteraction: false,

@@ -129,6 +129,9 @@
     @include devices(tablet) {
       width: 80%;
     }
+    .swiper-slide{
+      display: flex;
+    }
   }
 
   &--sidepanel {

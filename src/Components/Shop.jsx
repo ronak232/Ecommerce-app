@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../Styles/Button.style";
-import Spinner from "../ReuseComp/Loader/Loading";
+// import Spinner from "../ReuseComp/Loader/Loading";
 import Rating from "../ReuseComp/Rating/Rating";
 import { FiShoppingCart } from "react-icons/fi";
 import FilterProduct from "./FilterProduct";

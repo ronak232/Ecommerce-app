@@ -1,7 +1,7 @@
 // import React, { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import { Button } from "../Styles/Button.style";
-import { BsCartFill } from "react-icons/bs";
+// import { BsCartFill } from "react-icons/bs";
 
 function FilterProduct({ setcartFilter, allProducts }) {
   const [cartCategory, setCartcategory] = useState("");
