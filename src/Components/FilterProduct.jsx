@@ -37,7 +37,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
             </Button>
             <Button
               // display="flex"
-              fontSize="18px"
+              fontSize="20px"
               padding="8px"
               onClick={() => setCartcategory("smartphones")}
               width="100%"
