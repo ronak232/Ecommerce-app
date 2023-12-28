@@ -60,9 +60,6 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                     </div>
 
                     <div className="cart-items-products-list-item-total">
-                      <h5 className="cart-items-products-list-item-quantity">
-                        Quantity
-                      </h5>
                       <Button
                         hover="grey"
                         padding="4px 10px"

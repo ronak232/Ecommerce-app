@@ -8,27 +8,34 @@
     width: 100%;
     padding: 70px 0;
     flex-wrap: wrap;
-
-    &_img{
-      width: 50%;
-        max-width: 100%;
-        display: block;
+    &_img {
+      max-width: 100%;
+      display: block;
+      max-height: 380px;
+      img {
+        object-fit: contain;
+      }
     }
-    &_body{
+    &_body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 25px;
       width: 50%;
     }
-    &_title{
+    &_title {
       padding-bottom: 12px;
     }
-    @include devices(tablet){
-      flex-wrap: nowrap;
-    }
-    &_btn{
-      width:30%;
+    &_btn {
+      width: 30%;
       margin-top: 20px;
       display: block;
       margin-right: auto;
     }
+    @include devices(tablet) {
+      flex-wrap: nowrap;
+    }
   }
-
 }

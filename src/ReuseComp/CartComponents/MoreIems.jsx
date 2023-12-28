@@ -1,7 +1,7 @@
 import { Button } from "../../Styles/Button.style";
 import React from "react";
 
-function MoreIems({ showMoreItems, cartFilter, disableButton }) {
+function MoreIems({ showMoreItems, disableButton }) {
   return (
     <div className="product__loader">
       <Button

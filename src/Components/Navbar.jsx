@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Sass/Style.scss";
 import { HiBars3 } from "react-icons/hi2";
@@ -6,17 +6,23 @@ import { CiUser, CiSearch } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
+import { ThemeContext } from "../hooks/ContextApi";
 
-function NavBar({ count, cartItems }) {
+function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const [mobileToggle, setmobileToggle] = useState(false);
-  // const [itemsQuan]
+
   const toggleHandler = () => {
     setmobileToggle(!mobileToggle);
   };
 
   return (
     <header>
-      <nav className="main-navbar">
+      <nav
+        className="main-navbar"
+        style={{ borderBottom: darkMode ? "1px solid" : "" }}
+      >
         <div>
           <div className="main-navbar-container">
             <a href="/" className="main-navbar-logo">
@@ -26,13 +32,22 @@ function NavBar({ count, cartItems }) {
               />
             </a>
             <div className="main-navbar-search">
-              <CiSearch className="main-navbar-search-icon" />
-              <input
-                className="main-navbar-search-bar"
-                type="text"
-                name="search"
-                placeholder="Search for products"
-              />
+              <form
+                className=""
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <CiSearch className="main-navbar-search-icon" />
+                <input
+                  className="main-navbar-search-bar"
+                  type="text"
+                  name="search"
+                  placeholder="Search for products"
+                  value={querySearch}
+                  onChange={(e) => handleSearchResult(e)}
+                />
+              </form>
             </div>
             <div className="main-navbar-productCart">
               <div className="navbar-toggle" onClick={toggleHandler}>
@@ -58,10 +73,12 @@ function NavBar({ count, cartItems }) {
                 <span className="main-navbar-cart-item-number">{count}</span>
                 <div className="main-navbar-cart-item-text">
                   <small>My Cart</small>
-                  <h3>$
-                  {cartItems
-                    .map((item) => item.price * item.quantity)
-                    .reduce((total, value) => total + value, 0)}</h3>
+                  <h3>
+                    $
+                    {cartItems
+                      .map((item) => item.price * item.quantity)
+                      .reduce((total, value) => total + value, 0)}
+                  </h3>
                   <MdArrowDropDown className="main-navbar-cart-item-text-arrow" />
                 </div>
               </Link>

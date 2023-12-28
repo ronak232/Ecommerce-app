@@ -13,7 +13,7 @@ export const Button = styled.button`
   border: 0;
   cursor: pointer;
   box-shadow: ${(props) => props.boxShadow};
-  color: ${(props) => props.Color};
+  color: ${(props) => props.color};
   margin-left: ${(props) => props.marginLeft};
   opacity: 0.99;
   margin-bottom: ${(props) => props.marginBottom};

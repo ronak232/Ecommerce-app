@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import data from "../Json/data.json";
 // import { Button } from "../Styles/Button.style";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../hooks/ContextApi";
 
 function Store() {
   return (
     <section>
-      <div className="products-listed">
+      <div className="products-listed" style={{color:"black"}}>
         <div className="products-listed--container">
           <div className="products-listed--container-best">
             <ul className="products-listed--container-best-items">
@@ -24,12 +25,12 @@ function Store() {
                       alt=""
                     />
                     <div className="products-listed--links">
-                      <h6 className="products-listed--links-title">
+                      <h1 className="products-listed--links-title">
                         <a href="/">{item.title}</a>
-                      </h6>
-                      <div className="products-listed--links-price">
+                      </h1>
+                      <span className="products-listed--links-price">
                         {item.price}
-                      </div>
+                      </span>
                     </div>
                   </li>
                 );

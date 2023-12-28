@@ -1,10 +1,23 @@
 // import React, { useEffect, useState } from "react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "../Styles/Button.style";
 import { BsCartFill } from "react-icons/bs";
+import { ThemeContext } from "../hooks/ContextApi";
 
 function FilterProduct({ setcartFilter, allProducts }) {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const [cartCategory, setCartcategory] = useState("");
+
+  const productPriceMaxValue = allProducts.reduce(
+    (prev, curr) => (prev.price > curr.price ? prev : curr),
+    1
+  );
+
+  const productPriceMinValue = allProducts.reduce(
+    (prev, curr) => (prev.price < curr.price ? prev : curr),
+    1
+  );
 
   useEffect(() => {
     if (cartCategory === "") {
@@ -26,7 +39,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
           <h3>Categories</h3>
           <div className="products__filter-category--options-dropdown-items">
             <Button
-              // display="flex"
+              color={darkMode ? "white" : "black"}
               fontSize="18px"
               padding="8px"
               onClick={() => setCartcategory("")}
@@ -36,7 +49,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
               All
             </Button>
             <Button
-              // display="flex"
+              color={darkMode ? "white" : "black"}
               fontSize="18px"
               padding="8px"
               onClick={() => setCartcategory("smartphones")}
@@ -46,7 +59,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
               SmartPhones
             </Button>
             <Button
-              // display="flex"
+              color={darkMode ? "white" : "black"}
               fontSize="18px"
               padding="8px"
               onClick={() => setCartcategory("laptops")}
@@ -56,7 +69,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
               Laptops
             </Button>
             <Button
-              // display="flex"
+              color={darkMode ? "white" : "black"}
               fontSize="18px"
               padding="8px"
               onClick={() => setCartcategory("fragrances")}
@@ -66,7 +79,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
               Fragrances
             </Button>
             <Button
-              // display="flex"
+              color={darkMode ? "white" : "black"}
               fontSize="18px"
               padding="8px"
               onClick={() => setCartcategory("skincare")}
@@ -76,6 +89,18 @@ function FilterProduct({ setcartFilter, allProducts }) {
               Skincare
             </Button>
           </div>
+        </div>
+      </div>
+      <div className="product__filter-price">
+        <h1>Filter by Price</h1>
+        <div className="product__filter-price--range">
+          <input
+            type="range"
+            name="price"
+            // onChange={}
+            max={productPriceMaxValue}
+            min={productPriceMinValue}
+          />
         </div>
       </div>
     </aside>

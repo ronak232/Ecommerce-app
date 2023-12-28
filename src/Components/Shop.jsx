@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../Styles/Button.style";
 import Spinner from "../ReuseComp/Loader/Loading";
 import Rating from "../ReuseComp/Rating/Rating";
@@ -13,6 +13,7 @@ function Shop({
   allProducts,
   cartFilter,
   setcartFilter,
+  querySearch,
 }) {
   const [visibleItems, setvisibleItems] = useState(8);
 
@@ -21,6 +22,11 @@ function Shop({
       setvisibleItems((prevItem) => prevItem + 6);
     }, 1000);
   };
+
+  // Reset the product array when searching any product item
+  useEffect(() => {
+    setvisibleItems(8);
+  }, [querySearch]);
 
   const Navigate = useNavigate();
   const detailNavigate = (id) => {
@@ -40,53 +46,62 @@ function Shop({
           )}
 
           <div className="products__list">
-            {cartFilter.slice(0, visibleItems).map((prod, index) => {
-              return (
-                <div className="products__list--cards" key={index}>
-                  <div className="products__list--cards-content">
-                    <div className="products__list--cards-image">
-                      <img
-                        onClick={() => detailNavigate(prod.id)}
-                        src={`${
-                          prod.images !== "null" ? prod.thumbnail : prod.images
-                        }`}
-                        alt="images"
-                      />
-                    </div>
-                    <div className="products__list--cards-body">
-                      <p className="products__list--cards-category">
-                        {prod.category}
-                      </p>
-                      <h3 className="products__list--cards-title">
-                        {prod.title}
-                      </h3>
-                      <div className="products__list--cards-text">
-                        <h5 className="products__list--cards-text-price">
-                          ${prod.price}
-                        </h5>
-                        <Rating stars={prod.rating} />
+            {cartFilter
+              ?.filter((product) =>
+                product.title
+                  .toLowerCase()
+                  .includes((querySearch ?? "").toLowerCase())
+              )
+              .slice(0, visibleItems)
+              .map((prod, index) => {
+                return (
+                  <div className="products__list--cards" key={index}>
+                    <div className="products__list--cards-content">
+                      <div className="products__list--cards-image">
+                        <img
+                          onClick={() => detailNavigate(prod.id)}
+                          src={`${
+                            prod.images !== "null"
+                              ? prod.thumbnail
+                              : prod.images
+                          }`}
+                          alt="images"
+                        />
                       </div>
+                      <div className="products__list--cards-body">
+                        <p className="products__list--cards-category">
+                          {prod.category}
+                        </p>
+                        <h3 className="products__list--cards-title">
+                          {prod.title}
+                        </h3>
+                        <div className="products__list--cards-text">
+                          <h5 className="products__list--cards-text-price">
+                            ${prod.price}
+                          </h5>
+                          <Rating stars={prod.rating} />
+                        </div>
 
-                      <div className="products__list--cards-cart-btn">
-                        <Button
-                          bgColor="#fe696a"
-                          width="100%"
-                          borderRadius="6px"
-                          boxShadow="0"
-                          padding="8px"
-                          onClick={() => handleAddProduct(prod)}
-                          fontSize="14px"
-                          Color="white"
-                        >
-                          <FiShoppingCart className="cart" />
-                          Add to Cart
-                        </Button>
+                        <div className="products__list--cards-cart-btn">
+                          <Button
+                            bgColor="#fe696a"
+                            width="100%"
+                            borderRadius="6px"
+                            boxShadow="0"
+                            padding="8px"
+                            onClick={() => handleAddProduct(prod)}
+                            fontSize="14px"
+                            Color="white"
+                          >
+                            <FiShoppingCart className="cart" />
+                            Add to Cart
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
 
             {visibleItems < cartFilter.length ? (
               <MoreIems
@@ -95,14 +110,8 @@ function Shop({
                 disableButton={true}
               />
             ) : (
-              <MoreIems
-                showMoreItems={showMoreItems}
-                cartFilter={cartFilter}
-                disableButton={false}
-              />
+              <Spinner />
             )}
-
-            {/* {loader ? <MoreIems showMoreItems={showMoreItems} /> : <Spinner />} */}
           </div>
         </div>
       </div>

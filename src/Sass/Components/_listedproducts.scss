@@ -1,5 +1,5 @@
 .products-listed {
-  margin-bottom: 30px;
+  background: lightcyan;
   &--container {
     flex-wrap: wrap;
     @include container(flex, space-around, center);
@@ -8,7 +8,6 @@
     }
     &-best {
       padding: 16px 14px;
-      // padding-right: 18px;
       width: 100%;
       @include devices(tablet) {
         width: 33.3%;
@@ -117,8 +116,9 @@
 
     &-price {
       color: $metallic-purple;
-      // padding: 8px 0;
-      font-weight: 400;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: $RobotoSlab;
     }
   }
 

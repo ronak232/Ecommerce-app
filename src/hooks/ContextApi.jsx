@@ -1,11 +1,11 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 // Creating the common context api for toggle theme mode..
 const ThemeContext = createContext();
 
 // initial state
 const INITIAL_STATE = { darkMode: false };
-console.log(INITIAL_STATE)
+
 // Reducer function to update the component state..
 const themeModereducer = (state, action) => {
   switch (action.type) {
@@ -18,12 +18,20 @@ const themeModereducer = (state, action) => {
 
 //
 const ThemeProvider = (props) => {
-  const [state, dispatch] = useReducer(themeModereducer, INITIAL_STATE);
+  const storedTheme = JSON.parse(localStorage.getItem("theme"));
+  const [state, dispatch] = useReducer(
+    themeModereducer,
+    storedTheme || INITIAL_STATE
+  );
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(state));
+  }, [state]);
   return (
-    <ThemeContext.Provider value={{state, dispatch}}>
+    <ThemeContext.Provider value={{ state, dispatch }}>
       {props.children}
     </ThemeContext.Provider>
   );
 };
 
-export {ThemeContext, ThemeProvider};
+export { ThemeContext, ThemeProvider };

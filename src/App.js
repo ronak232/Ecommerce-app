@@ -18,18 +18,20 @@ import ProductDetails from "./Pages/ProductDetails";
 function App() {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+
+  const [allProducts, setAllProducts] = useState([]);
+
   const [cartItems, setCartItems] = useState(
     // Check  for the cart have items in it or not....
     JSON.parse(localStorage.getItem("cartProducts")) || []
   );
-  const [allProducts, setAllProducts] = useState([]);
-  // const [loader, setLoader] = useState(true);
 
   const [cartFilter, setcartFilter] = useState([]);
 
+  const [querySearch, setquerySearch] = useState("")
+
   const handleAddProduct = (product) => {
     const ifProductPresent = cartItems.find((item) => item.id === product.id);
-    // console.log(ifProductPresent)
 
     if (ifProductPresent) {
       setCartItems(
@@ -42,7 +44,6 @@ function App() {
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
-    // console.log(quantity)
   };
 
   // Removing item from
@@ -56,7 +57,6 @@ function App() {
   }, [cartItems]);
 
   // Adding Quantity of product
-
   // Increment the value
   const handleIncrement = (id) => {
     setCartItems((cartItems) =>
@@ -84,7 +84,6 @@ function App() {
       .then((data) => {
         setAllProducts(data);
         setcartFilter(data);
-        // setLoader(true);
       })
       .catch((error) => {
         alert(error);
@@ -95,16 +94,15 @@ function App() {
     APICall();
   }, []);
 
+  // Search Product 
+  const handleSearchResult = (e)=>{
+    setquerySearch(e.target.value);
+  }
+
   return (
-    <div
-      className={darkMode ? "dark" : ""}
-    // style={{
-    //   backgroundColor: darkMode ? "#222" : "white",
-    //   color: darkMode && "whit",
-    // }}
-    >
+    <div className={darkMode ? "dark" : ""}>
       <Router>
-        <NavBar count={cartItems.length} cartItems={cartItems} />
+        <NavBar count={cartItems.length} cartItems={cartItems} handleSearchResult={handleSearchResult} querySearch={querySearch}/>
         <Themetoggle />
         <Routes>
           <Route
@@ -127,6 +125,7 @@ function App() {
                 cartFilter={cartFilter}
                 setcartFilter={setcartFilter}
                 allProducts={allProducts}
+                querySearch={querySearch}
               />
             }
           />
@@ -143,7 +142,7 @@ function App() {
               />
             }
           />
-          <Route
+          {/* <Route
             path="/details/:id"
             element={
               <ProductDetails
@@ -153,7 +152,7 @@ function App() {
                 handleDecrement={handleDecrement}
               />
             }
-          />
+          /> */}
         </Routes>
 
         {<Footer />}
