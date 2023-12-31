@@ -20,7 +20,7 @@
     width: 100%;
     padding: 0 16px;
     cursor: pointer;
-    // flex-direction: column;
+   
     @include devices(tablet) {
       width: 100%;
     }
@@ -42,8 +42,8 @@
 
     &-list {
       width: 100%;
+      border-radius: 6px;
       padding: 16px 14px;
-      // margin-right: 12px;
       margin-bottom: 14px;
       margin-top: 12px;
       border-bottom: 1px solid $light-grey;

@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import data from "../Json/data.json";
-// import { Button } from "../Styles/Button.style";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../hooks/ContextApi";
 
 function Store() {
   return (

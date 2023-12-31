@@ -4,18 +4,18 @@
   min-height: calc(100vh - 50vh - 56px);
 
   &__main-container {
-   @include container(flex, center, baseline);
-   flex-direction: column;
-   @include devices(tablet){
-    flex-direction: row;
-   }
+    @include container(flex, center, baseline);
+    flex-direction: column;
+    @include devices(tablet) {
+      flex-direction: row;
+    }
   }
 
   &__filter-category {
     text-align: center;
     width: 100%;
 
-    @include devices(tablet){
+    @include devices(tablet) {
       width: 20%;
     }
 
@@ -59,7 +59,6 @@
       &-image {
         display: block;
         width: 100%;
-        // max-height: 200px;
         img {
           width: 100%;
           object-fit: contain;
@@ -84,7 +83,6 @@
         @include devices(tablet) {
           font-size: 12px;
         }
-        // padding: 12px 0px;
       }
 
       &-price {
@@ -112,6 +110,19 @@
     padding-bottom: 30px;
     &-container {
       @include container(flex, space-around, center);
+    }
+  }
+  .page-btn {
+    text-align: center;
+    max-width: 1320px;
+    margin: auto;
+    padding: 0 10px;
+    &__number {
+      padding: 8px 12px;
+      margin: 0 4px;
+      border-radius: 6px;
+      background-color: #bae6f185;
+      border: 0;
     }
   }
 }

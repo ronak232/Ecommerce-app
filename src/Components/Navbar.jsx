@@ -51,7 +51,10 @@ function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
             </div>
             <div className="main-navbar-productCart">
               <div className="navbar-toggle" onClick={toggleHandler}>
-                <button className="navbar-toggle-btn">
+                <button
+                  className="navbar-toggle-btn"
+                  style={{ color: darkMode ? "white" : "black" }}
+                >
                   {mobileToggle ? (
                     <RxCross1 className="smooth" />
                   ) : (

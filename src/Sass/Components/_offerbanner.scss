@@ -1,0 +1,35 @@
+.product__offer-banner {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  &-first {
+    width: 100%;
+    min-height: 300px;
+    background-image: url(../../Images/sale.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  &-second {
+    width: 100%;
+    min-height: 300px;
+    background-image: url(../../Images/super-deal-offer.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  @include devices(mobile) {
+    flex-wrap: nowrap;
+  }
+}

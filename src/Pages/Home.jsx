@@ -4,16 +4,14 @@ import { Pagination } from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/pagination";
-import Shop from "./Shop";
+// import Shop from "../Components/Shop";
 import { Link } from "react-router-dom";
-import LogoSlider from "./LogoSlider";
+import LogoSlider from "../Components/LogoSlider";
 import { RiArrowUpSLine } from "react-icons/ri";
-import Store from "./Store";
+import Store from "../Components/Store";
+import OffersBanner from "../Components/OffersBanner";
 
-function Home({ handleAddProduct, allProducts, cartFilter, setcartFilter}) {
-
-  // console.log(allProducts);
- 
+function Home() { 
   return ( 
     <>
       <section>
@@ -160,7 +158,7 @@ function Home({ handleAddProduct, allProducts, cartFilter, setcartFilter}) {
 
       <div className="shop-link">
         <div className="shop-link-products">
-          <h2 className="shop-link-products-title">Trending Products</h2>
+          <h2 className="shop-link-products-title">Special Offers</h2>
           <div className="shop-link-products-trigger">
             <Link className="shop-link-products-trigger-links" to="/shop">
               More Products
@@ -168,9 +166,8 @@ function Home({ handleAddProduct, allProducts, cartFilter, setcartFilter}) {
             </Link>
           </div>
         </div>
-        {/* <span className="shop-link-divider"></span> */}
-
-        <Shop allProducts={allProducts} cartFilter={cartFilter} setcartFilter={setcartFilter} disableFilterOptions={true} handleAddProduct={handleAddProduct} />
+        <OffersBanner/>
+        {/* <Shop allProducts={allProducts} cartFilter={cartFilter} setcartFilter={setcartFilter} disableFilterOptions={true} handleAddProduct={handleAddProduct} /> */}
       </div>
       <LogoSlider />
       <Store />

@@ -13,14 +13,14 @@ $complex-gradient: linear-gradient(to top left, blue);
   margin: auto;
   display: $display;
   justify-content: $justify-content;
-  padding: 0 16px;
+  padding: 0 10px;
   align-items: $align-items;
 }
 
 @mixin containerGrid($display, $gridColumn) {
   max-width: 1320px;
   margin: auto;
-  padding: 0 16px;
+  padding: 0 10px;
   display: $display;
   grid-template-columns: repeat($gridColumn);
 }

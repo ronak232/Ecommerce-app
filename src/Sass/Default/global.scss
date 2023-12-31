@@ -35,6 +35,14 @@ small {
   font-size: 12px;
 }
 
+button{
+  border: 0;
+  outline: none;
+  line-height: 12px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
 .dark{
   background: $black-color;
   color: $white-color;

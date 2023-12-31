@@ -3,9 +3,9 @@ import "./App.css";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/Navbar";
-import Home from "./Components/Home";
-import Account from "./Components/Account";
-import Blog from "./Components/Blog";
+import Home from "./Pages/Home";
+import Account from "./Pages/Account";
+import Blog from "./Pages/Blog";
 import Shop from "./Components/Shop";
 import Pages from "./Components/Pages";
 import Cart from "./ReuseComp/CartComponents/Cart";
@@ -14,12 +14,15 @@ import Themetoggle from "./ReuseComp/DarkModeToggle/Themetoggle";
 import { ThemeContext } from "./hooks/ContextApi";
 import { useContext } from "react";
 import ProductDetails from "./Pages/ProductDetails";
+import paginate from "./utils/paginate";
 
 function App() {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
 
   const [allProducts, setAllProducts] = useState([]);
+
+  const [loading, setLoading] = useState(true);
 
   const [cartItems, setCartItems] = useState(
     // Check  for the cart have items in it or not....
@@ -53,7 +56,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartItems));
-    // setcartUpdate(cartItems);
   }, [cartItems]);
 
   // Adding Quantity of product
@@ -79,11 +81,12 @@ function App() {
 
   const APICall = () => {
     axios
-      .get("https://dummyjson.com/products")
+      .get("https://dummyjson.com/products?limit=100")
       .then((response) => response.data.products)
       .then((data) => {
-        setAllProducts(data);
-        setcartFilter(data);
+        setAllProducts(paginate(data));
+        setcartFilter(paginate(data));
+        setLoading(false)
       })
       .catch((error) => {
         alert(error);
@@ -95,14 +98,14 @@ function App() {
   }, []);
 
   // Search Product 
-  const handleSearchResult = (e)=>{
+  const handleSearchResult = (e) => {
     setquerySearch(e.target.value);
   }
 
   return (
     <div className={darkMode ? "dark" : ""}>
       <Router>
-        <NavBar count={cartItems.length} cartItems={cartItems} handleSearchResult={handleSearchResult} querySearch={querySearch}/>
+        <NavBar count={cartItems.length} cartItems={cartItems} handleSearchResult={handleSearchResult} querySearch={querySearch} />
         <Themetoggle />
         <Routes>
           <Route
@@ -126,6 +129,7 @@ function App() {
                 setcartFilter={setcartFilter}
                 allProducts={allProducts}
                 querySearch={querySearch}
+                loading={loading}
               />
             }
           />

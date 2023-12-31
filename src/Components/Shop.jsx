@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button } from "../Styles/Button.style";
 import Spinner from "../ReuseComp/Loader/Loading";
 import Rating from "../ReuseComp/Rating/Rating";
 import { FiShoppingCart } from "react-icons/fi";
 import FilterProduct from "./FilterProduct";
-import MoreIems from "../ReuseComp/CartComponents/MoreIems";
 import { useNavigate } from "react-router-dom";
 
 function Shop({
@@ -14,19 +13,23 @@ function Shop({
   cartFilter,
   setcartFilter,
   querySearch,
+  loading,
 }) {
-  const [visibleItems, setvisibleItems] = useState(8);
+  const [paginatePages, setPaginatePages] = useState(0); //Current page
 
-  const showMoreItems = () => {
-    setTimeout(() => {
-      setvisibleItems((prevItem) => prevItem + 6);
-    }, 1000);
+  const handlePageChange = (index) => {
+    setPaginatePages(index);
   };
 
-  // Reset the product array when searching any product item
+  const memoizedSetcartFilter = useCallback(setcartFilter, [setcartFilter]);
+
   useEffect(() => {
-    setvisibleItems(8);
-  }, [querySearch]);
+    if (loading) {
+      return;
+    }
+    setcartFilter(allProducts[paginatePages]);
+    memoizedSetcartFilter(allProducts[paginatePages]);
+  }, [loading, paginatePages, querySearch, allProducts, memoizedSetcartFilter]);
 
   const Navigate = useNavigate();
   const detailNavigate = (id) => {
@@ -46,74 +49,82 @@ function Shop({
           )}
 
           <div className="products__list">
-            {cartFilter
-              ?.filter((product) =>
-                product.title
-                  .toLowerCase()
-                  .includes((querySearch ?? "").toLowerCase())
-              )
-              .slice(0, visibleItems)
-              .map((prod, index) => {
-                return (
-                  <div className="products__list--cards" key={index}>
-                    <div className="products__list--cards-content">
-                      <div className="products__list--cards-image">
-                        <img
-                          onClick={() => detailNavigate(prod.id)}
-                          src={`${
-                            prod.images !== "null"
-                              ? prod.thumbnail
-                              : prod.images
-                          }`}
-                          alt="images"
-                        />
-                      </div>
-                      <div className="products__list--cards-body">
-                        <p className="products__list--cards-category">
-                          {prod.category}
-                        </p>
-                        <h3 className="products__list--cards-title">
-                          {prod.title}
-                        </h3>
-                        <div className="products__list--cards-text">
-                          <h5 className="products__list--cards-text-price">
-                            ${prod.price}
-                          </h5>
-                          <Rating stars={prod.rating} />
+            {!loading ? (
+              cartFilter
+                ?.filter((product) =>
+                  product.title
+                    ?.toLowerCase()
+                    .includes((querySearch ?? "").toLowerCase())
+                )
+                .map((prod) => {
+                  return (
+                    <div className="products__list--cards" key={prod.id}>
+                      <div className="products__list--cards-content">
+                        <div className="products__list--cards-image">
+                          <img
+                            onClick={() => detailNavigate(prod.id)}
+                            src={`${
+                              prod.images !== "null"
+                                ? prod.thumbnail
+                                : prod.images
+                            }`}
+                            alt="images"
+                          />
                         </div>
+                        <div className="products__list--cards-body">
+                          <p className="products__list--cards-category">
+                            {prod.category}
+                          </p>
+                          <h3 className="products__list--cards-title">
+                            {prod.title}
+                          </h3>
+                          <div className="products__list--cards-text">
+                            <h5 className="products__list--cards-text-price">
+                              ${prod.price}
+                            </h5>
+                            <Rating stars={prod.rating} />
+                          </div>
 
-                        <div className="products__list--cards-cart-btn">
-                          <Button
-                            bgColor="#fe696a"
-                            width="100%"
-                            borderRadius="6px"
-                            boxShadow="0"
-                            padding="8px"
-                            onClick={() => handleAddProduct(prod)}
-                            fontSize="14px"
-                            Color="white"
-                          >
-                            <FiShoppingCart className="cart" />
-                            Add to Cart
-                          </Button>
+                          <div className="products__list--cards-cart-btn">
+                            <Button
+                              bgColor="#fe696a"
+                              width="100%"
+                              borderRadius="6px"
+                              boxShadow="0"
+                              padding="8px"
+                              onClick={() => handleAddProduct(prod)}
+                              fontSize="14px"
+                              Color="white"
+                            >
+                              <FiShoppingCart className="cart" />
+                              Add to Cart
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-
-            {visibleItems < cartFilter.length ? (
-              <MoreIems
-                showMoreItems={showMoreItems}
-                cartFilter={cartFilter}
-                disableButton={true}
-              />
+                  );
+                })
             ) : (
               <Spinner />
             )}
           </div>
         </div>
+        {!loading && (
+          <div className="page-btn">
+            {allProducts.map((_, index) => {
+              return (
+                <button
+                  className="page-btn__number"
+                  key={index}
+                  onClick={() => handlePageChange(index)}
+                >
+                  {index + 1}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );

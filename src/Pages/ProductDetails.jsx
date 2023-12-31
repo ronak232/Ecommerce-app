@@ -8,7 +8,12 @@
 // import "swiper/css/navigation";
 // import "swiper/css/thumbs";
 
-// function ProductDetails({ allProducts,handleAddProduct,handleIncrement,handleDecrement }) {
+// function ProductDetails({
+//   allProducts,
+//   handleAddProduct,
+//   handleIncrement,
+//   handleDecrement,
+// }) {
 //   const [thumbNailImg, setThumbNailImg] = useState(null);
 //   const { id } = useParams();
 //   const matchedProducts = allProducts.find(
@@ -30,7 +35,7 @@
 //             swiper:
 //               thumbNailImg && !thumbNailImg.destroyed ? thumbNailImg : null,
 //           }}
-//           // modules={[FreeMode, Navigation, Thumbs]}
+//           modules={[FreeMode, Navigation, Thumbs]}
 //           className="productimages__slider_thumbs"
 //         >
 //           {matchedProducts?.images.map((img) => {
@@ -48,7 +53,7 @@
 //           slidesPerView={4}
 //           freeMode={true}
 //           watchSlidesProgress={true}
-//           // modules={[FreeMode, Navigation, Thumbs]}
+//           modules={[FreeMode, Navigation, Thumbs]}
 //           className="productdetails__thumb_gallery"
 //         >
 //           {matchedProducts?.images.map((img) => {

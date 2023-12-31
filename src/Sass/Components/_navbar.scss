@@ -48,7 +48,7 @@
       font-size: 21px;
     }
     &-bar {
-      width: 80%;
+      width: 100%;
       padding: 11px 14px 11px 38px;
       font-size: 15px;
       @include border(1px solid #dae1e7, 4px);
@@ -185,12 +185,8 @@
   }
 
   &-btn {
-    // position: absolute;
-    // top: 0px;
-    // right: 23px;
     font-size: 32px;
     background: transparent;
-    color: $black-color;
     border: 0;
   }
 }
@@ -209,12 +205,11 @@
     justify-content: center;
     background: $white-color;
     flex-direction: column;
-    // @include devices(desktop) {
-    //   display: none;
-    // }
     &-list {
       width: 100%;
       padding: 10px;
+      display: flex;
+      flex-direction: column;
 
       &-items {
         border-bottom: 2px solid rgba(136, 134, 134, 0.621);

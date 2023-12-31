@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../Styles/Button.style";
 import { SlArrowLeft } from "react-icons/sl";
+import { ThemeContext } from "../../hooks/ContextApi";
 
 function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
     <div>
       <div className="cart-product">
@@ -23,7 +26,7 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                   <Button
                     padding="8px"
                     bgColor="none"
-                    Color="#fe696a"
+                    color={darkMode ? "white" : "black"}
                     display="flex"
                     hoverColor="white"
                   >
