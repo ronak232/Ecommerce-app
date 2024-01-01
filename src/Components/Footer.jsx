@@ -2,7 +2,6 @@ import React from "react";
 import data from "../Json/data.json";
 import { Button } from "../Styles/Button.style";
 import { TfiEmail } from "react-icons/tfi";
-// import { RiAppleFill } from "react-icons/ri";
 
 function Footer() {
   return (
@@ -13,17 +12,17 @@ function Footer() {
             <h5 className="footer--text-heading">Shop departments</h5>
             <div className="footer--text-widgets">
               <ul className="footer--text-widgets-list">
-                {data.footer.shopDepartment.map((item) => {
+                {data?.footer?.shopDepartment?.map((item) => {
                   return (
                     <li
                       className="footer--text-widgets-list-items"
-                      key={item.id}
+                      key={item?.id}
                     >
                       <a
                         className="footer--text-widgets-list-items-links"
                         href="/"
                       >
-                        {item.title}
+                        {item?.title}
                       </a>
                     </li>
                   );
@@ -35,17 +34,17 @@ function Footer() {
             <div className="footer--text-widgets">
               <h5 className="footer--text-heading">Account & shipping info</h5>
               <ul className="footer--text-widgets-list">
-                {data.footer.Account.map((item) => {
+                {data?.footer?.Account?.map((item) => {
                   return (
                     <li
                       className="footer--text-widgets-list-items"
-                      key={item.id}
+                      key={item?.id}
                     >
                       <a
                         className="footer--text-widgets-list-items-links"
                         href="/"
                       >
-                        {item.title}
+                        {item?.title}
                       </a>
                     </li>
                   );
@@ -55,17 +54,17 @@ function Footer() {
             <div className="footer--text-widgets">
               <h5 className="footer--text-heading">About us</h5>
               <ul className="footer--text-widgets-list">
-                {data.footer.About.map((item) => {
+                {data?.footer?.About?.map((item) => {
                   return (
                     <li
                       className="footer--text-widgets-list-items"
-                      key={item.id}
+                      key={item?.id}
                     >
                       <a
                         className="footer--text-widgets-list-items-links"
                         href="/"
                       >
-                        {item.title}
+                        {item?.title}
                       </a>
                     </li>
                   );
@@ -80,16 +79,16 @@ function Footer() {
                 <div className="footer-connect-form-control">
                   <TfiEmail className="footer-connect-form-control-mail" />
                   <input type="text" name="email" placeholder="Your email" />
-                <Button
-                  marginTop="0"
-                  borderRadius="0px 7px 6px 0px"
-                  padding="10px"
-                  bgColor="#fe696ae6"
+                  <Button
+                    marginTop="0"
+                    borderRadius="0px 7px 6px 0px"
+                    padding="10px"
+                    bgColor="#fe696ae6"
                   >
-                  Subscribe
-                  <sup>*</sup>
-                </Button>
-                  </div>
+                    Subscribe
+                    <sup>*</sup>
+                  </Button>
+                </div>
               </form>
               <p className="footer-connect-form-text">
                 *Subscribe to our newsletter to receive early discount offers,
@@ -101,14 +100,12 @@ function Footer() {
               <div className="footer-connect-app-content">
                 <div className="footer-connect-app-content-apple">
                   <a href="/" className="apple-btn">
-                    {/* <img src="../Images/apple.svg" alt="" /> */}
                     <span>Download on the</span>
                     <span>App Store</span>
                   </a>
                 </div>
                 <div className="footer-connect-app-content-play">
                   <a href="/" className="play-btn">
-                    {/* <img src="../Images/apple.svg" alt="" /> */}
                     <span>Download on the</span>
                     <span>App Store</span>
                   </a>

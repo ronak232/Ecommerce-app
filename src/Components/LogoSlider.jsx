@@ -40,7 +40,7 @@ function LogoSlider() {
               },
             }}
           >
-            {data.com.map((item, index) => {
+            {data?.com?.map((item, index) => {
               return (
                 <SwiperSlide
                   className="logo-slider-wrapper"
@@ -49,7 +49,7 @@ function LogoSlider() {
                 >
                   <a href="/">
                   <img
-                    src={`${item.imgUrl}`}
+                    src={`${item?.imgUrl}`}
                     alt=""
                     className="logo-slider-wrapper-img"
                   />

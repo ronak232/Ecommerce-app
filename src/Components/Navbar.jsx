@@ -10,7 +10,7 @@ import { ThemeContext } from "../hooks/ContextApi";
 
 function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
   const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
+  const darkMode = theme?.state?.darkMode;
   const [mobileToggle, setmobileToggle] = useState(false);
 
   const toggleHandler = () => {
@@ -79,7 +79,7 @@ function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
                   <h3>
                     $
                     {cartItems
-                      .map((item) => item.price * item.quantity)
+                      ?.map((item) => item.price * item.quantity)
                       .reduce((total, value) => total + value, 0)}
                   </h3>
                   <MdArrowDropDown className="main-navbar-cart-item-text-arrow" />
@@ -127,12 +127,6 @@ function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
                 </li>
               </ul>
             </div>
-            {/* 
-              <div className="navbar-toggle" onClick={toggleHandler}>
-                <button className="navbar-toggle-btn">
-                  {mobileToggle ? <RxCross1 /> : <HiBars3 />}
-                </button>
-              </div> */}
           </div>
         </div>
       </nav>

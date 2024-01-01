@@ -41,8 +41,6 @@ function Home() {
                     <a
                       className="product__banner-btn-red"
                       href="/"
-
-                      // onClick={showMoreItems}
                     >
                       Shop Now
                       <RiArrowUpSLine className="arrow" />
@@ -68,8 +66,6 @@ function Home() {
                     <a
                       className="product__banner-btn-red"
                       href="/"
-
-                      // onClick={showMoreItems}
                     >
                       Shop Now
                       <RiArrowUpSLine className="arrow" />
@@ -167,7 +163,6 @@ function Home() {
           </div>
         </div>
         <OffersBanner/>
-        {/* <Shop allProducts={allProducts} cartFilter={cartFilter} setcartFilter={setcartFilter} disableFilterOptions={true} handleAddProduct={handleAddProduct} /> */}
       </div>
       <LogoSlider />
       <Store />

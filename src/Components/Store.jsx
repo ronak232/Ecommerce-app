@@ -11,23 +11,23 @@ function Store() {
           <div className="products-listed--container-best">
             <ul className="products-listed--container-best-items">
               <h4>Bestsellers</h4>
-              {data.Products.bestseller.map((item) => {
+              {data?.Products?.bestseller?.map((item) => {
                 return (
                   <li
-                    key={item.id}
+                    key={item?.id}
                     className="products-listed--container-best-items-list"
                   >
                     <img
                       className="products-listed--images"
-                      src={item.img}
+                      src={item?.img}
                       alt=""
                     />
                     <div className="products-listed--links">
                       <h1 className="products-listed--links-title">
-                        <a href="/">{item.title}</a>
+                        <a href="/">{item?.title}</a>
                       </h1>
                       <span className="products-listed--links-price">
-                        {item.price}
+                        {item?.price}
                       </span>
                     </div>
                   </li>
@@ -46,23 +46,23 @@ function Store() {
           <div className="products-listed--container-new">
             <h4>New arrivals </h4>
             <ul className="products-listed--container-new-items">
-              {data.Products.newArrivals.map((item) => {
+              {data?.Products?.newArrivals?.map((item) => {
                 return (
                   <li
-                    key={item.id}
+                    key={item?.id}
                     className="products-listed--container-new-items-list"
                   >
                     <img
                       className="products-listed--images"
-                      src={item.img}
+                      src={item?.img}
                       alt=""
                     />
                     <div className="products-listed--links">
                       <h6 className="products-listed--links-title">
-                        <a href="/">{item.title}</a>
+                        <a href="/">{item?.title}</a>
                       </h6>
                       <div className="products-listed--links-price">
-                        {item.price}
+                        {item?.price}
                       </div>
                     </div>
                   </li>
@@ -81,23 +81,23 @@ function Store() {
           <div className="products-listed--container-top">
             <ul className="products-listed--container-top-items">
               <h4>Top rated</h4>
-              {data.Products.topRated.map((item) => {
+              {data?.Products?.topRated?.map((item) => {
                 return (
                   <li
-                    key={item.id}
+                    key={item?.id}
                     className="products-listed--container-top-items-list"
                   >
                     <img
                       className="products-listed--images"
-                      src={item.img}
+                      src={item?.img}
                       alt=""
                     />
                     <div className="products-listed--links">
                       <h6 className="products-listed--links-title">
-                        <a href="/">{item.title}</a>
+                        <a href="/">{item?.title}</a>
                       </h6>
                       <div className="products-listed--links-price">
-                        {item.price}
+                        {item?.price}
                       </div>
                     </div>
                   </li>

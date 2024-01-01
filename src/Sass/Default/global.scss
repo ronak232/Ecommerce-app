@@ -23,7 +23,7 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
-  transition: color .25s ease-in-out;
+  transition: color 0.25s ease-in-out;
   color: inherit;
 }
 
@@ -35,16 +35,18 @@ small {
   font-size: 12px;
 }
 
-button{
+button {
   border: 0;
   outline: none;
   line-height: 12px;
   cursor: pointer;
   text-transform: capitalize;
+  background: $light-blue;
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
-.dark{
+.dark {
   background: $black-color;
   color: $white-color;
 }
-

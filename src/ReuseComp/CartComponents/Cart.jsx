@@ -6,7 +6,7 @@ import { ThemeContext } from "../../hooks/ContextApi";
 
 function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
   const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
+  const darkMode = theme?.state?.darkMode;
   return (
     <div>
       <div className="cart-product">
@@ -17,7 +17,7 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
 
       <div className="cart-items">
         <div className="cart-items-container">
-          {cartItems.length === 0 ? (
+          {cartItems?.length === 0 ? (
             <div>No items in the cart</div>
           ) : (
             <div className="cart-items-products">
@@ -31,18 +31,17 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                     hoverColor="white"
                   >
                     <SlArrowLeft className="cart-items-products-shop-toggle-arrow" />
-                    Continue shoping
+                    Continue shopping
                   </Button>
                 </Link>
               </div>
               {cartItems?.map((products, index) => {
-                // console.log(products);
                 return (
                   <div key={index} className="cart-items-products-list">
                     {/* <img src={products.images} alt="" /> */}
                     <div className="cart-items-products-list-item">
                       <div className="cart-items-products-list-item-slider">
-                        {products.images.map((item, index) => {
+                        {products?.images?.map((item, index) => {
                           return (
                             // <div className="cart-items-products-list-item-slider">
                             <img src={item} alt="" key={index} />
@@ -54,10 +53,10 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                       </div>
                       <div className="cart-items-products-list-item-desc">
                         <a href="/" className="cart-items-products-list-title">
-                          {products.title}
+                          {products?.title}
                         </a>
                         <h5 className="cart-items-products-list-price">
-                          ${products.price}
+                          ${products?.price}
                         </h5>
                       </div>
                     </div>
@@ -73,7 +72,7 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                         -
                       </Button>
 
-                      <span>{products.quantity}</span>
+                      <span>{products?.quantity}</span>
                       <Button
                         hover="grey"
                         padding="4px 10px"
@@ -100,7 +99,7 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
 
                       <div className="cart-items-total">
                         <h5>
-                          Total price - ${products.price * products.quantity}
+                          Total price - ${products?.price * products?.quantity}
                         </h5>
                       </div>
                     </div>
@@ -115,14 +114,11 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                 <h5 className="cart-items-sidepanel-checkout-text-center">
                   Subtotal
                 </h5>
-                {/* <p className="cart-items-sidepanel-checkout-text-bold">
-                Total Amount:
-              </p> */}
                 <h3 className="cart-items-sidepanel-checkout-text-price">
                   $
                   {cartItems
-                    .map((item) => item.price * item.quantity)
-                    .reduce((total, value) => total + value, 0)}
+                    ?.map((item) => item.price * item.quantity)
+                    ?.reduce((total, value) => total + value, 0)}
                 </h3>
               </div>
             </aside>

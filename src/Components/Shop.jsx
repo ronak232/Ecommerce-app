@@ -21,6 +21,10 @@ function Shop({
     setPaginatePages(index);
   };
 
+  // the useCallback hook to memoize the setcartFilter function. 
+  // useCallback hook to memoize the function and only recreate it when its dependencies change
+  // This helps to ensure that the function reference remains stable unless its dependencies change
+  // memoizedSetcartFilter to the dependency array and using useCallback, you address the linting warning while ensuring that the function reference is stable.
   const memoizedSetcartFilter = useCallback(setcartFilter, [setcartFilter]);
 
   useEffect(() => {
@@ -52,37 +56,37 @@ function Shop({
             {!loading ? (
               cartFilter
                 ?.filter((product) =>
-                  product.title
+                  product?.title
                     ?.toLowerCase()
                     .includes((querySearch ?? "").toLowerCase())
                 )
-                .map((prod) => {
+                ?.map((prod) => {
                   return (
-                    <div className="products__list--cards" key={prod.id}>
+                    <div className="products__list--cards" key={prod?.id}>
                       <div className="products__list--cards-content">
                         <div className="products__list--cards-image">
                           <img
                             onClick={() => detailNavigate(prod.id)}
                             src={`${
-                              prod.images !== "null"
-                                ? prod.thumbnail
-                                : prod.images
+                              prod?.images !== "null" || undefined || ""
+                                ? prod?.thumbnail
+                                : prod?.images
                             }`}
                             alt="images"
                           />
                         </div>
                         <div className="products__list--cards-body">
                           <p className="products__list--cards-category">
-                            {prod.category}
+                            {prod?.category}
                           </p>
                           <h3 className="products__list--cards-title">
-                            {prod.title}
+                            {prod?.title}
                           </h3>
                           <div className="products__list--cards-text">
                             <h5 className="products__list--cards-text-price">
-                              ${prod.price}
+                              ${prod?.price}
                             </h5>
-                            <Rating stars={prod.rating} />
+                            <Rating stars={prod?.rating} />
                           </div>
 
                           <div className="products__list--cards-cart-btn">

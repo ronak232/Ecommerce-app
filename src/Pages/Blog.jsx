@@ -29,20 +29,20 @@ function Blog() {
           }}
         >
           <div className="blogs__post_slider-container">
-            {data.Blog.map((item) => {
+            {data?.Blog?.map((item) => {
               return (
                 <SwiperSlide className="blogs__post_slider-slide">
-                  <div className="blogs__post_slider-card" key={item.id}>
+                  <div className="blogs__post_slider-card" key={item?.id}>
                     <span className="blogs__post_slider-card-label">
                       <RxClock className="blogs__post_slider-card-label-clock"/>
-                      {item.label}
+                      {item?.label}
                     </span>
                     <div className="blogs__post_slider-card-img">
-                      <img src={item.imgUrl} alt="" />
+                      <img src={item?.imgUrl} alt="" />
                     </div>
                     <div className="blogs__post_slider-card-body">
                       <a href="/" className="blogs__post_slider-card-link">
-                        {item.title}
+                        {item?.title}
                       </a>
                     </div>
                   </div>
