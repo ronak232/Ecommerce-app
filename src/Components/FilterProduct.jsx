@@ -1,6 +1,4 @@
 import { useCallback, useContext, useEffect } from "react";
-import { Button } from "../Styles/Button.style";
-import { BsCartFill } from "react-icons/bs";
 import { ThemeContext } from "../hooks/ContextApi";
 
 function FilterProduct({ setcartFilter, allProducts }) {
@@ -9,8 +7,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
 
   // To filter only the product categories
   const allCategories = [
-    "all",
-    ...new Set(allProducts?.flat()?.map((item) => item.category)), //flat() method is used to flatten the paginated arrays into a single array before applying the filtering logic.
+    ...new Set(allProducts?.flat()?.map((item) => item?.category)), //flat() method is used to flatten the paginated arrays into a single array before applying the filtering logic.
   ];
 
   // To calculate the maximum price of the product.
@@ -57,18 +54,14 @@ function FilterProduct({ setcartFilter, allProducts }) {
           <div className="products__filter-category--options-dropdown-items">
             {allCategories?.map((category, index) => {
               return (
-                <Button
-                  color={darkMode ? "white" : "black"}
-                  display="flex"
-                  fontSize="12px"
-                  padding="8px"
-                  width="100%"
-                  bgColor="none"
+                <button
+                  className="filters-btn"
+                  style={{color:darkMode ? "white" : "black"}}
                   key={index}
                   onClick={() => filterProductItems(category)}
                 >
                   {category}
-                </Button>
+                </button>
               );
             })}
           </div>

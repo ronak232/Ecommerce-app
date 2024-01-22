@@ -2,40 +2,87 @@
   &__container {
     @include container(flex, space-between, center);
   }
+
   &__card {
     display: flex;
-    justify-content: space-around;
+    gap: 20px;
     width: 100%;
     padding: 70px 0;
-    flex-wrap: wrap;
+    margin-right: 0;
+    flex-direction: column;
+
     &_img {
       max-width: 100%;
       display: block;
       max-height: 380px;
+
       img {
-        object-fit: contain;
+        object-fit: cover;
+        max-width: 100%;
+        width: 100%;
       }
     }
+
+    &_thumbsimgs {
+      width: 100%;
+    }
+
     &_body {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: center;
       gap: 14px;
       padding: 0 25px;
-      width: 50%;
+      width: 100%;
+
+      @include devices(tablet) {
+        width: 50%;
+      }
     }
+
     &_title {
       padding-bottom: 12px;
     }
+
     &_btn {
       width: 30%;
       margin-top: 20px;
       display: block;
       margin-right: auto;
     }
+
     @include devices(tablet) {
-      flex-wrap: nowrap;
+      flex-direction: row;
+    }
+
+    &_pdpthumbs {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+
+      &_imgs {
+        max-width: 100%;
+      }
+
+      @include devices(tablet) {
+        width: 50%;
+      }
+    }
+  }
+
+  &__pdpgallery {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: auto;
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 120px;
     }
   }
 }

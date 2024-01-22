@@ -64,6 +64,10 @@
           font-size: 16px;
           margin-top: 8px;
           margin-bottom: 12px;
+          border-radius: 5px;
+          :focus{
+            outline: none;
+          }
         }
       }
     }

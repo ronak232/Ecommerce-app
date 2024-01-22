@@ -146,7 +146,7 @@ function App() {
               />
             }
           />
-          {/* <Route
+          <Route
             path="/details/:id"
             element={
               <ProductDetails
@@ -156,7 +156,7 @@ function App() {
                 handleDecrement={handleDecrement}
               />
             }
-          /> */}
+          />
         </Routes>
 
         {<Footer />}
