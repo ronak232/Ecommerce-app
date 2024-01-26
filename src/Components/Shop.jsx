@@ -12,7 +12,6 @@ function Shop({
   allProducts,
   cartFilter,
   setcartFilter,
-  querySearch,
   loading,
 }) {
   const [paginatePages, setPaginatePages] = useState(0); //Current page
@@ -55,7 +54,7 @@ function Shop({
           <div className="products__list">
             {!loading ? (
               cartFilter
-                ?.filter((product) =>
+?.filter((product) =>
                   product?.title
                     ?.toLowerCase()
                     .includes((querySearch ?? "").toLowerCase())
@@ -69,9 +68,9 @@ function Shop({
                             onClick={() => detailNavigate(prod.id)}
                             src={`${
                               prod?.images !== "null" || undefined || ""
-                                ? prod?.thumbnail
-                                : prod?.images
-                            }`}
+                              ? prod?.thumbnail
+                              : prod?.images
+                              }`}
                             alt="images"
                           />
                         </div>

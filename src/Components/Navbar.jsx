@@ -8,7 +8,7 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
 import { ThemeContext } from "../hooks/ContextApi";
 
-function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
+function NavBar({ count, cartItems, querySearch, setquerySearch }) {
   const theme = useContext(ThemeContext);
   const darkMode = theme?.state?.darkMode;
   const [mobileToggle, setmobileToggle] = useState(false);
@@ -45,7 +45,7 @@ function NavBar({ count, cartItems, querySearch, handleSearchResult }) {
                   name="search"
                   placeholder="Search for products"
                   value={querySearch}
-                  onChange={(e) => handleSearchResult(e)}
+                  onChange={(e) => setquerySearch(e.target.value)}
                 />
               </form>
             </div>

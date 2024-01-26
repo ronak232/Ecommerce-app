@@ -9,9 +9,7 @@ function Account() {
           <div className="store-account__content">
             <div className="store-account__card">
               <div className="store-account__card-body">
-                <div className="store-account__card-title">
-                  <h1>Login</h1>
-                </div>
+                <h1 className="store-account__card-title">Login</h1>
                 <div className="store-account__card-link">
                   <h3 className="store-account__card-link-text">
                     Or Login with :
@@ -63,19 +61,17 @@ function Account() {
                     </div>
                     <div className="btn-red">
                       <Button
-                      bgColor="#fe4042;"
-                      borderRadius="5px"
-                      Color="white"
-                      padding="14px"
-                      fontSize="18px"
+                        bgColor="#fe4042;"
+                        borderRadius="5px"
+                        color="white"
+                        padding="14px"
+                        fontSize="18px"
                       >Sign In</Button>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-
-            <div className="store-account__card">Sign Up</div>
           </div>
         </div>
       </div>

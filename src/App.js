@@ -31,7 +31,9 @@ function App() {
 
   const [cartFilter, setcartFilter] = useState([]);
 
-  const [querySearch, setquerySearch] = useState("")
+  const [querySearch, setquerySearch] = useState("");
+
+  const [productSearch, setProductSearch] = useState([])
 
   const handleAddProduct = (product) => {
     const ifProductPresent = cartItems.find((item) => item.id === product.id);
@@ -95,17 +97,16 @@ function App() {
 
   useEffect(() => {
     APICall();
-  }, []);
-
-  // Search Product 
-  const handleSearchResult = (e) => {
-    setquerySearch(e.target.value);
-  }
+    const searchproduct = allProducts?.filter((item) =>
+      item?.title?.toLowerCas().includes((querySearch.toLowerCase())));
+    setcartFilter(searchproduct);
+  }, [querySearch]);
 
   return (
     <div className={darkMode ? "dark" : ""}>
       <Router>
-        <NavBar count={cartItems.length} cartItems={cartItems} handleSearchResult={handleSearchResult} querySearch={querySearch} />
+        <NavBar count={cartItems.length} cartItems={cartItems}
+          setquerySearch={setquerySearch} querySearch={querySearch} />
         <Themetoggle />
         <Routes>
           <Route
