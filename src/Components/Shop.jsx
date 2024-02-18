@@ -26,9 +26,10 @@ function Shop({
   const ifProductPresent = cartItems.find((item) => item.id === cartFilter.id);
 
   const searchResult = querySearch
-    ? productSearch // Use productSearch when search query is present
+    ? productSearch.filter((item) =>
+        item?.title?.toLowerCase().includes(querySearch.toLowerCase())
+      ) // Use productSearch when search query is present
     : cartFilter; //Use cartFilter when there is no search query;
-
 
   // the useCallback hook to memoize the setcartFilter function.
   // useCallback hook to memoize the function and only recreate it when its dependencies change

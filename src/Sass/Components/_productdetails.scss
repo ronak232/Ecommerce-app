@@ -61,6 +61,7 @@
       align-items: flex-start;
       justify-content: center;
       width: 100%;
+      gap: 12px;
 
       &_imgs {
         max-width: 100%;
@@ -82,7 +83,7 @@
       max-width: 100%;
       object-fit: cover;
       display: block;
-      min-height: 120px;
+      min-height: 100%;
     }
   }
 }

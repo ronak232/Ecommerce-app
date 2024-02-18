@@ -89,7 +89,7 @@ function App() {
       .then((data) => {
         setAllProducts(paginate(data));
         setcartFilter(paginate(data));
-        setProductSearch(paginate(data));
+        setProductSearch(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -97,20 +97,8 @@ function App() {
       });
   };
 
-  const handleSearchProduct = () => {
-    const searchProduct = allProducts?.filter((item) =>
-      item?.title?.toLowerCase().includes(querySearch.toLowerCase())
-    );
-    console.log("search ", searchProduct);
-    if (querySearch === "") {
-      setProductSearch(allProducts);
-    }
-    setProductSearch(searchProduct);
-  };
-
   useEffect(() => {
     APICall();
-    handleSearchProduct();
   }, []);
 
   return (
@@ -121,7 +109,7 @@ function App() {
           cartItems={cartItems}
           querySearch={querySearch}
           setQuerySearch={setQuerySearch}
-          handleSearchProduct={handleSearchProduct}
+          // handleSearchProduct={handleSearchProduct}
         />
         <Themetoggle />
         <Routes>
