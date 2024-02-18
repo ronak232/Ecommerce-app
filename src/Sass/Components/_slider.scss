@@ -4,7 +4,7 @@
   &--container {
     @include container(flex, space-between, flex-start);
     flex-direction: column;
-    // align-items: center;
+    gap: 8px;
     @include devices(tablet) {
       flex-direction: column;
     }
@@ -112,11 +112,8 @@
 
   &--slider {
     display: flex;
-    align-items: center;
     width: 100%;
     overflow: hidden;
-    flex-direction: column;
-    align-items: center;
 
     @include devices(tablet) {
       width: 70%;
@@ -135,6 +132,23 @@
       width: 30%;
     }
 
+    &-wrapper {
+      display: flex;
+      flex-direction: row;
+      overflow: scroll;
+      gap: 12px;
+      @include devices(tablet) {
+        width: 100%;
+        overflow: hidden;
+      }
+      @include devices(desktop) {
+        flex-direction: column;
+      }
+    }
+    &-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
     &-text {
       padding: 35px 10px;
       color: $black-color;
@@ -146,7 +160,6 @@
       justify-content: center;
       margin-right: 12px;
       min-width: 330px;
-
       background-color: rgba(221 235 249 / 45%);
       @include border(0, 8px);
 
@@ -173,14 +186,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 10px;
       min-width: 330px;
 
       background-color: rgba(254 165 105 / 10%);
       @include border(0, 8px);
 
       @include devices(tablet) {
-        margin-bottom: 26px;
         &-link {
           display: flex;
           align-items: center;
@@ -227,28 +238,11 @@
         font-size: 18px;
       }
     }
-
-    &-wrapper {
-      display: flex;
-      flex-direction: row;
-      overflow: scroll;
-      // padding: 0 12px;
-      @include devices(tablet) {
-        width: 100%;
-        overflow: hidden;
-      }
-      @include devices(desktop) {
-        flex-direction: column;
-      }
-    }
-    &-wrapper::-webkit-scrollbar {
-      display: none;
-    }
   }
 }
 
 .slider {
-  display: flex;
+  display: flex !important;
   align-items: center;
   flex-direction: column-reverse;
   justify-content: flex-end;

@@ -1,4 +1,5 @@
 @import "./variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +14,8 @@ body {
   position: relative;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
-  background: white;
-  // min-height: 100vh;
+  color: $black-color;
+  background-color: $white-color;
 }
 
 body::-webkit-scrollbar {
@@ -25,6 +26,15 @@ a {
   text-decoration: none;
   transition: color 0.25s ease-in-out;
   color: inherit;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: $RobotoSlab;
+}
+
+h1 {
+  color: $white-color;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 li {
@@ -44,6 +54,9 @@ button {
   background: $light-blue;
   padding: 8px 12px;
   border-radius: 6px;
+  color: $zilla-blue;
+  font-weight: 600;
+  // font-family: $;
 }
 
 .dark {

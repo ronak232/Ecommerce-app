@@ -29,6 +29,14 @@
     justify-content: center;
     border-radius: 10px;
   }
+  .btn-sale,
+  .btn-shop {
+    background-color: $black-color;
+    color: $white-color;
+    font-family: $RobotoSlab;
+    font-size: 14px;
+    font-weight: 600;
+  }
   @include devices(mobile) {
     flex-wrap: nowrap;
   }

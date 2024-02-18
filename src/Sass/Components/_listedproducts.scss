@@ -21,6 +21,7 @@
           border-bottom: 1px solid rgba(146, 146, 146, 0.3);
           padding-bottom: 10px;
           padding-top: 14px;
+          gap: 8px;
         }
       }
 
@@ -95,11 +96,9 @@
   }
 
   &--links {
-    margin-left: 12px;
-
-    &-title {
-      font-size: 14px;
+    a {
       display: block;
+      color: $black-color;
       &:hover {
         transition: all 0.4s ease-in;
         color: #fe3638;

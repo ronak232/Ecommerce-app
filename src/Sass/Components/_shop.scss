@@ -6,28 +6,40 @@
   &__main-container {
     @include container(flex, center, flex-start);
     flex-direction: column;
+    gap: 12px;
 
     @include devices(tablet) {
       flex-direction: row;
     }
   }
 
-  &__filter-category {
-    text-align: center;
+  &__filter {
     width: 100%;
 
     @include devices(tablet) {
-      width: 20%;
+      width: 30%;
     }
-
-    &--options {
+    &-category {
+      text-align: center;
       width: 100%;
 
-      &-dropdown {
-        &-items {
-          display: flex;
-          flex-direction: column;
+      &--options {
+        width: 100%;
+
+        &-dropdown {
+          &-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 8px;
+          }
         }
+      }
+    }
+    &-price {
+      text-align: center;
+      h1 {
+        color: $clr-sea-text;
       }
     }
   }
@@ -174,10 +186,10 @@
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  padding: 8px 20px;
   position: relative;
-  margin-bottom: 8px;
   background: transparent;
+  color: $clr-sea-text;
+  text-align: left;
 
   &:after {
     background: none repeat scroll 0 0 transparent;

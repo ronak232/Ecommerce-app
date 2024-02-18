@@ -4,10 +4,12 @@
   transition: all 0.6ms ease-in-out;
   z-index: 999;
   position: relative;
+  border: 0;
 
   &-container {
     @include container(flex, space-between, center);
     flex-direction: row;
+    gap: 12px;
     @include devices(tablet) {
       flex-direction: row;
       align-items: center;

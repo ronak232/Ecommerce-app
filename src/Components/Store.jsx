@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Store() {
   return (
     <section>
-      <div className="products-listed" style={{color:"black"}}>
+      <div className="products-listed">
         <div className="products-listed--container">
           <div className="products-listed--container-best">
             <ul className="products-listed--container-best-items">
@@ -23,9 +23,9 @@ function Store() {
                       alt=""
                     />
                     <div className="products-listed--links">
-                      <h1 className="products-listed--links-title">
+                      {/* <h1 className="products-listed--links-title"> */}
                         <a href="/">{item?.title}</a>
-                      </h1>
+                      {/* </h1> */}
                       <span className="products-listed--links-price">
                         {item?.price}
                       </span>
@@ -58,9 +58,9 @@ function Store() {
                       alt=""
                     />
                     <div className="products-listed--links">
-                      <h6 className="products-listed--links-title">
+                      {/* <h6 className="products-listed--links-title"> */}
                         <a href="/">{item?.title}</a>
-                      </h6>
+                      {/* </h6> */}
                       <div className="products-listed--links-price">
                         {item?.price}
                       </div>
@@ -93,9 +93,9 @@ function Store() {
                       alt=""
                     />
                     <div className="products-listed--links">
-                      <h6 className="products-listed--links-title">
+                      {/* <h6 className="products-listed--links-title"> */}
                         <a href="/">{item?.title}</a>
-                      </h6>
+                      {/* </h6> */}
                       <div className="products-listed--links-price">
                         {item?.price}
                       </div>

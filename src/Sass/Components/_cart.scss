@@ -20,7 +20,7 @@
     width: 100%;
     padding: 0 16px;
     cursor: pointer;
-   
+
     @include devices(tablet) {
       width: 100%;
     }
@@ -135,15 +135,11 @@
     &-checkout {
       &-text {
         padding: 16px 0;
-
+        color: initial;
         &-center {
           font-size: 18px;
           padding: 16px 0;
         }
-
-        // &-bold {
-        //   font-size: 18px;
-        // }
 
         &-price {
           font-size: 28px;

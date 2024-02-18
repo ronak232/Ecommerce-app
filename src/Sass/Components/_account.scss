@@ -19,35 +19,49 @@
   }
 
   &__card {
-    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 46px 0;
     &-body {
       box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.15);
-      background: $white-color;
+      background: $bg-pale-pink;
       border-radius: 6px;
       padding: 14px;
       height: 100%;
+      min-width: 100%;
+      color: $black-color;
+      @include devices(tablet) {
+        min-width: 550px;
+      }
     }
-    &-title{
+    &-title {
       font-size: 42px;
       font-weight: 600;
-      line-height: 22%;
-      font-family:fantasy;
+      font-family: $font-montserrat;
       margin-bottom: 30px;
       margin-top: 22px;
     }
+
+    &-loginoptions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     &-link {
       display: flex;
       align-items: center;
-      padding: 24px 0;
+      margin: 24px 0;
+      gap: 16px;
       &-text {
-        margin-right: 15px;
+        color: $black-color;
       }
-
       &-media {
         background: #f3f5f9;
-        margin-left: 12px;
         padding: 10px;
         border-radius: 8px;
+        width: 40px;
+        text-align: center;
         color: #4b566b;
       }
     }
@@ -78,7 +92,7 @@
           margin-bottom: 12px;
           border-radius: 5px;
           border: 2px solid $border-grey;
-          :focus{
+          :focus {
             outline: none;
           }
         }

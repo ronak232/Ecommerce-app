@@ -47,8 +47,8 @@ function FilterProduct({ setcartFilter, allProducts }) {
   }, [filterProductItems]);
 
   return (
-    <aside className="products__filter-category">
-      <div className="products__filter-category--options">
+    <aside className="products__filter">
+      <div className="products__filter-category">
         <div className="products__filter-category--options-dropdown">
           <h3>Categories</h3>
           <div className="products__filter-category--options-dropdown-items">
@@ -56,7 +56,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
               return (
                 <button
                   className="filters-btn"
-                  style={{color:darkMode ? "white" : "black"}}
+                  // style={{color:darkMode ? "white" : "black"}}
                   key={index}
                   onClick={() => filterProductItems(category)}
                 >
@@ -67,7 +67,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
           </div>
         </div>
       </div>
-      <div className="product__filter-price">
+      <div className="products__filter-price">
         <h1>Filter by Price</h1>
         <div className="product__filter-price--range">
           <input

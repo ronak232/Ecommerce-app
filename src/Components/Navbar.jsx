@@ -6,11 +6,8 @@ import { CiUser, CiSearch } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
-import { ThemeContext } from "../hooks/ContextApi";
 
-function NavBar({ count, cartItems, querySearch, setquerySearch }) {
-  const theme = useContext(ThemeContext);
-  const darkMode = theme?.state?.darkMode;
+function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
   const [mobileToggle, setmobileToggle] = useState(false);
 
   const toggleHandler = () => {
@@ -21,7 +18,6 @@ function NavBar({ count, cartItems, querySearch, setquerySearch }) {
     <header>
       <nav
         className="main-navbar"
-        style={{ borderBottom: darkMode ? "1px solid" : "" }}
       >
         <div>
           <div className="main-navbar-container">
@@ -45,7 +41,7 @@ function NavBar({ count, cartItems, querySearch, setquerySearch }) {
                   name="search"
                   placeholder="Search for products"
                   value={querySearch}
-                  onChange={(e) => setquerySearch(e.target.value)}
+                  onChange={(e) => setQuerySearch(e.target.value)}
                 />
               </form>
             </div>
@@ -53,7 +49,7 @@ function NavBar({ count, cartItems, querySearch, setquerySearch }) {
               <div className="navbar-toggle" onClick={toggleHandler}>
                 <button
                   className="navbar-toggle-btn"
-                  style={{ color: darkMode ? "white" : "black" }}
+                  // style={{ color: darkMode ? "white" : "black" }}
                 >
                   {mobileToggle ? (
                     <RxCross1 className="smooth" />
@@ -62,7 +58,7 @@ function NavBar({ count, cartItems, querySearch, setquerySearch }) {
                   )}
                 </button>
               </div>
-              <Link className="main-navbar-user">
+              <Link className="main-navbar-user" to="/account">
                 <CiUser className="main-navbar-user-icons" />
                 <div className="main-navbar-user-text">
                   <h5>

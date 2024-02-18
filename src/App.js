@@ -31,9 +31,10 @@ function App() {
 
   const [cartFilter, setcartFilter] = useState([]);
 
-  const [querySearch, setquerySearch] = useState("");
+  // Search product hooks
+  const [querySearch, setQuerySearch] = useState("");
 
-  const [productSearch, setProductSearch] = useState([])
+  const [productSearch, setProductSearch] = useState([]);
 
   const handleAddProduct = (product) => {
     const ifProductPresent = cartItems.find((item) => item.id === product.id);
@@ -88,25 +89,40 @@ function App() {
       .then((data) => {
         setAllProducts(paginate(data));
         setcartFilter(paginate(data));
-        setLoading(false)
+        setProductSearch(paginate(data));
+        setLoading(false);
       })
       .catch((error) => {
         alert(error);
       });
   };
 
+  const handleSearchProduct = () => {
+    const searchProduct = allProducts?.filter((item) =>
+      item?.title?.toLowerCase().includes(querySearch.toLowerCase())
+    );
+    console.log("search ", searchProduct);
+    if (querySearch === "") {
+      setProductSearch(allProducts);
+    }
+    setProductSearch(searchProduct);
+  };
+
   useEffect(() => {
     APICall();
-    const searchproduct = allProducts?.filter((item) =>
-      item?.title?.toLowerCas().includes((querySearch.toLowerCase())));
-    setcartFilter(searchproduct);
-  }, [querySearch]);
+    handleSearchProduct();
+  }, []);
 
   return (
     <div className={darkMode ? "dark" : ""}>
       <Router>
-        <NavBar count={cartItems.length} cartItems={cartItems}
-          setquerySearch={setquerySearch} querySearch={querySearch} />
+        <NavBar
+          count={cartItems.length}
+          cartItems={cartItems}
+          querySearch={querySearch}
+          setQuerySearch={setQuerySearch}
+          handleSearchProduct={handleSearchProduct}
+        />
         <Themetoggle />
         <Routes>
           <Route
@@ -130,6 +146,7 @@ function App() {
                 setcartFilter={setcartFilter}
                 allProducts={allProducts}
                 querySearch={querySearch}
+                productSearch={productSearch}
                 loading={loading}
               />
             }

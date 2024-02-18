@@ -6,7 +6,6 @@ function Account() {
     <section>
       <div className="store-account">
         <div className="store-account__container">
-          <div className="store-account__content">
             <div className="store-account__card">
               <div className="store-account__card-body">
                 <h1 className="store-account__card-title">Login</h1>
@@ -14,7 +13,7 @@ function Account() {
                   <h3 className="store-account__card-link-text">
                     Or Login with :
                   </h3>
-                  <div>
+                  <div className="store-account__card-loginoptions">
                     <a
                       className="store-account__card-link-media bg-google"
                       href="/"
@@ -61,7 +60,7 @@ function Account() {
                     </div>
                     <div className="btn-red">
                       <Button
-                        bgColor="#fe4042;"
+                        bgColor="#383fdc"
                         borderRadius="5px"
                         color="white"
                         padding="14px"
@@ -72,7 +71,6 @@ function Account() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </section>

@@ -12,7 +12,10 @@ function Shop({
   allProducts,
   cartFilter,
   setcartFilter,
+  querySearch,
+  productSearch,
   loading,
+  cartItems,
 }) {
   const [paginatePages, setPaginatePages] = useState(0); //Current page
 
@@ -20,7 +23,14 @@ function Shop({
     setPaginatePages(index);
   };
 
-  // the useCallback hook to memoize the setcartFilter function. 
+  const ifProductPresent = cartItems.find((item) => item.id === cartFilter.id);
+
+  const searchResult = querySearch
+    ? productSearch // Use productSearch when search query is present
+    : cartFilter; //Use cartFilter when there is no search query;
+
+
+  // the useCallback hook to memoize the setcartFilter function.
   // useCallback hook to memoize the function and only recreate it when its dependencies change
   // This helps to ensure that the function reference remains stable unless its dependencies change
   // memoizedSetcartFilter to the dependency array and using useCallback, you address the linting warning while ensuring that the function reference is stable.
@@ -53,61 +63,62 @@ function Shop({
 
           <div className="products__list">
             {!loading ? (
-              cartFilter
-?.filter((product) =>
-                  product?.title
-                    ?.toLowerCase()
-                    .includes((querySearch ?? "").toLowerCase())
-                )
-                ?.map((prod) => {
-                  return (
-                    <div className="products__list--cards" key={prod?.id}>
-                      <div className="products__list--cards-content">
-                        <div className="products__list--cards-image">
-                          <img
-                            onClick={() => detailNavigate(prod.id)}
-                            src={`${
-                              prod?.images !== "null" || undefined || ""
+              searchResult?.map((prod) => {
+                return (
+                  <div className="products__list--cards" key={prod?.id}>
+                    <div className="products__list--cards-content">
+                      <div className="products__list--cards-image">
+                        <img
+                          onClick={() => detailNavigate(prod.id)}
+                          src={`${
+                            prod?.images !== "null" || undefined || ""
                               ? prod?.thumbnail
                               : prod?.images
-                              }`}
-                            alt="images"
-                          />
+                          }`}
+                          alt="images"
+                        />
+                      </div>
+                      <div className="products__list--cards-body">
+                        <p className="products__list--cards-category">
+                          {prod?.category}
+                        </p>
+                        <h3 className="products__list--cards-title">
+                          {prod?.title}
+                        </h3>
+                        <div className="products__list--cards-text">
+                          <h5 className="products__list--cards-text-price">
+                            ${prod?.price}
+                          </h5>
+                          <Rating stars={prod?.rating} />
                         </div>
-                        <div className="products__list--cards-body">
-                          <p className="products__list--cards-category">
-                            {prod?.category}
-                          </p>
-                          <h3 className="products__list--cards-title">
-                            {prod?.title}
-                          </h3>
-                          <div className="products__list--cards-text">
-                            <h5 className="products__list--cards-text-price">
-                              ${prod?.price}
-                            </h5>
-                            <Rating stars={prod?.rating} />
-                          </div>
 
-                          <div className="products__list--cards-cart-btn">
+                        <div className="products__list--cards-cart-btn">
+                          {ifProductPresent ? (
+                            <div>
+                              <button>+</button>
+                              <button>-</button>
+                            </div>
+                          ) : (
                             <Button
                               bgColor="#fe696a"
                               width="100%"
                               borderRadius="6px"
                               boxShadow="0"
-                              padding="8px"
+                              padding="10px"
                               onClick={() => handleAddProduct(prod)}
                               fontSize="14px"
-                              Color="white"
+                              color="white"
                             >
                               <FiShoppingCart className="cart" />
                               Add to Cart
                             </Button>
-                          </div>
+                          )}
                         </div>
                       </div>
                     </div>
-                  );
-                })
+                  </div>
+                );
+              })
             ) : (
               <Spinner />
             )}
