@@ -52,10 +52,10 @@
     flex-wrap: wrap;
     width: 100%;
     margin: 0;
+    row-gap: 12px;
 
     &--cards {
       width: 100%;
-      margin: 16px 0;
       cursor: pointer;
       color: $black-color;
       padding-right: 12px;
@@ -69,9 +69,10 @@
         margin: auto;
         background: $white-color;
         border-radius: 12px;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.27);
 
         &:hover {
-          box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.37);
+          // box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.37);
           border-radius: 9px;
           transition: all 0.7s ease;
         }
@@ -142,16 +143,28 @@
     max-width: 1320px;
     margin: auto;
     padding: 0 10px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
 
     &__number {
-      padding: 12px 2px;
+      padding: 8px 2px;
       margin: 0 4px;
       border-radius: 20%;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 700;
       border: 0;
-      width: 40px;
+      width: 30px;
       box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.27);
+      color: $white-color;
+    }
+    button.active {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+    @include devices(tablet) {
+      justify-content: flex-end;
     }
   }
 }

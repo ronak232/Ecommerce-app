@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Sass/Style.scss";
 import { HiBars3 } from "react-icons/hi2";
@@ -6,6 +6,7 @@ import { CiUser, CiSearch } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
+import { BsSearch } from "react-icons/bs";
 
 function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
   const [mobileToggle, setmobileToggle] = useState(false);
@@ -14,11 +15,16 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
     setmobileToggle(!mobileToggle);
   };
 
+  // const handleSearchbar = () =>{
+  //  const hideSearchBar = document.querySelector(".product__search")
+  //  document.addEventListener("click", function () {    
+
+  //  })
+  // }
+
   return (
     <header>
-      <nav
-        className="main-navbar"
-      >
+      <nav className="main-navbar">
         <div>
           <div className="main-navbar-container">
             <a href="/" className="main-navbar-logo">
@@ -27,9 +33,10 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
                 alt=""
               />
             </a>
-            <div className="main-navbar-search">
+            <div className="main-navbar-search hide">
               <form
-                className=""
+                className="d-flex"
+                role="search"
                 onSubmit={(e) => {
                   e.preventDefault();
                 }}
@@ -37,8 +44,9 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
                 <CiSearch className="main-navbar-search-icon" />
                 <input
                   className="main-navbar-search-bar"
-                  type="text"
                   name="search"
+                  type="search"
+                  aria-label="Search"
                   placeholder="Search for products"
                   value={querySearch}
                   onChange={(e) => setQuerySearch(e.target.value)}
@@ -46,11 +54,11 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
               </form>
             </div>
             <div className="main-navbar-productCart">
+              <div className="product__search">
+                <BsSearch className="product__search_icon"/>
+              </div>
               <div className="navbar-toggle" onClick={toggleHandler}>
-                <button
-                  className="navbar-toggle-btn"
-                  // style={{ color: darkMode ? "white" : "black" }}
-                >
+                <button className="navbar-toggle-btn">
                   {mobileToggle ? (
                     <RxCross1 className="smooth" />
                   ) : (
