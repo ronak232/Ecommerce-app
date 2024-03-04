@@ -18,18 +18,26 @@
     }
   }
 
+  &__logo {
+    max-width: 58px;
+    max-height: 45px;
+  }
+
   &__card {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 46px 0;
     &-body {
       box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.15);
-      background: $bg-pale-pink;
+      background: $white-color;
       border-radius: 6px;
-      padding: 14px;
+      padding: 34px;
       height: 100%;
       min-width: 100%;
       color: $black-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       @include devices(tablet) {
         min-width: 550px;
       }
@@ -38,8 +46,8 @@
       font-size: 42px;
       font-weight: 600;
       font-family: $font-montserrat;
-      margin-bottom: 30px;
       margin-top: 22px;
+      color: $blue-color;
     }
 
     &-loginoptions {
@@ -55,6 +63,9 @@
       gap: 16px;
       &-text {
         color: $black-color;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: $font-montserrat;
       }
       &-media {
         background: #f3f5f9;
@@ -67,35 +78,37 @@
     }
   }
   &__form {
+    width: 100%;
     &-control {
-      padding: 20px 0;
+      display: flex;
+      gap: 24px;
+      flex-direction: column;
+      position: relative;
+      p{
+        font-size: 14px;
+        font-weight: 600;
+        font-family: $font-montserrat;
+      }
       &-validation {
         position: relative;
-
-        &-mail {
-          position: absolute;
-          left: 0;
-          top: 20px;
-          margin-left: 10px;
-        }
-        &-password {
-          position: absolute;
-          left: 0;
-          top: 20px;
-          margin-left: 10px;
-        }
         &-text {
           width: 100%;
           padding: 10px 40px;
           font-size: 16px;
-          margin-top: 8px;
-          margin-bottom: 12px;
           border-radius: 5px;
           border: 2px solid $border-grey;
           :focus {
             outline: none;
+            border: 0;
           }
         }
+      }
+      &-icons {
+        position: absolute;
+        left: 0;
+        top: 12px;
+        margin-left: 10px;
+        font-size: 16px;
       }
     }
   }
@@ -128,4 +141,13 @@
     box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(29, 161, 242, 0.9);
     color: $white-color;
   }
+}
+
+// Error mssg
+.fieldmssg-error {
+  color: $error-mssg;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: $RobotoSlab;
+  padding-top: 8px;
 }

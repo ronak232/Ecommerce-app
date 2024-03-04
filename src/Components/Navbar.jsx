@@ -17,7 +17,7 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
 
   // const handleSearchbar = () =>{
   //  const hideSearchBar = document.querySelector(".product__search")
-  //  document.addEventListener("click", function () {    
+  //  document.addEventListener("click", function () {
 
   //  })
   // }
@@ -54,8 +54,8 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
               </form>
             </div>
             <div className="main-navbar-productCart">
-              <div className="product__search">
-                <BsSearch className="product__search_icon"/>
+              <div className="search__product">
+                <BsSearch className="search__product_icon" />
               </div>
               <div className="navbar-toggle" onClick={toggleHandler}>
                 <button className="navbar-toggle-btn">
@@ -107,13 +107,6 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
                     Home
                   </Link>
                 </li>
-
-                <li className="main-navbar-content-list-items">
-                  <Link className="main-navbar-content-list-item" to="/account">
-                    Account
-                  </Link>
-                </li>
-
                 <li className="main-navbar-content-list-items">
                   <Link className="main-navbar-content-list-item" to="/shop">
                     Shop
@@ -122,6 +115,11 @@ function NavBar({ count, cartItems, querySearch, setQuerySearch }) {
                 <li className="main-navbar-content-list-items">
                   <Link className="main-navbar-content-list-item" to="/blog">
                     Blog
+                  </Link>
+                </li>
+                <li className="main-navbar-content-list-items">
+                  <Link className="main-navbar-content-list-item" to="/account">
+                    Account
                   </Link>
                 </li>
                 <li className="main-navbar-content-list-items">

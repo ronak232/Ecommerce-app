@@ -103,6 +103,9 @@
         transition: all 0.4s ease-in;
         color: #fe3638;
       }
+      @media screen and (width >= 770px) {
+        font-size: 12px;
+      }
     }
 
     &-price {

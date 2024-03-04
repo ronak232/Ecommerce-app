@@ -123,8 +123,6 @@
   &--sidepanel {
     max-width: 100%;
     background: transparent;
-    display: flex;
-    flex-direction: row;
     padding: 12px 0;
     margin-top: 14px;
 
@@ -139,10 +137,10 @@
       gap: 12px;
       @include devices(tablet) {
         width: 100%;
-        overflow: hidden;
       }
       @include devices(desktop) {
         flex-direction: column;
+        overflow: unset;
       }
     }
     &-wrapper::-webkit-scrollbar {
@@ -168,6 +166,7 @@
           display: flex;
           align-items: center;
           padding-top: 12px;
+          min-width: 100%;
         }
       }
 
@@ -220,7 +219,6 @@
       @include border(0, 8px);
 
       @include devices(tablet) {
-        margin-bottom: 26px;
         &-link {
           display: flex;
           align-items: center;
@@ -285,7 +283,6 @@
 
     &-trigger {
       @include border(1px solid #4e54c8, 4px);
-      // margin-bottom: 18px;
       &:hover {
         background: #4e54c8;
         color: $white-color;

@@ -221,6 +221,13 @@
   }
 }
 
+.search__product{
+  display: none;
+  @media screen and (width <= 820px ) {
+    display: block;
+  }
+}
+
 .cart {
   margin-right: 10px;
 }

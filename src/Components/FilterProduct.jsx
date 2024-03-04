@@ -1,9 +1,6 @@
 import { useCallback, useContext, useEffect } from "react";
-import { ThemeContext } from "../hooks/ContextApi";
 
 function FilterProduct({ setcartFilter, allProducts }) {
-  const theme = useContext(ThemeContext);
-  const darkMode = theme?.state?.darkMode;
 
   // To filter only the product categories
   const allCategories = [
@@ -42,6 +39,10 @@ function FilterProduct({ setcartFilter, allProducts }) {
     [allProducts, setcartFilter]
   );
 
+  const clearAllFilter  = () =>{
+   setcartFilter(allProducts)
+  }
+
   useEffect(() => {
     filterProductItems();
   }, [filterProductItems]);
@@ -66,6 +67,9 @@ function FilterProduct({ setcartFilter, allProducts }) {
             })}
           </div>
         </div>
+      </div>
+      <div>
+       <button onClick={() => clearAllFilter()}>Clear Filter</button>
       </div>
       <div className="products__filter-price">
         <h1>Filter by Price</h1>

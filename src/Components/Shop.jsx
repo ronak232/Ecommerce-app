@@ -130,9 +130,7 @@ function Shop({
             {allProducts.map((_, index) => {
               return (
                 <button
-                  className={
-                    paginatePages === index ? "active" : "page-btn__number"
-                  }
+                  className={paginatePages === index? "active" :"page-btn__number"}
                   key={index}
                   onClick={() => handlePageChange(index)}
                 >

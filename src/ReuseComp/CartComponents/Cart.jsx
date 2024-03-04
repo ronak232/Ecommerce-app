@@ -38,7 +38,6 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
               {cartItems?.map((products, index) => {
                 return (
                   <div key={index} className="cart-items-products-list">
-                    {/* <img src={products.images} alt="" /> */}
                     <div className="cart-items-products-list-item">
                       <div className="cart-items-products-list-item-slider">
                         {products?.images?.map((item, index) => {
