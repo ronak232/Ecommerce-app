@@ -64,7 +64,7 @@
       &-text {
         color: $black-color;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 400;
         font-family: $font-montserrat;
       }
       &-media {
@@ -84,9 +84,9 @@
       gap: 24px;
       flex-direction: column;
       position: relative;
-      p{
+      p {
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 400;
         font-family: $font-montserrat;
       }
       &-validation {

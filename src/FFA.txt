@@ -1,16 +1,28 @@
+List of more functionality adding in the future:
+1. Pagination should hide when specific product category is less than total items is visible on per page or show only page number with respected to items are available.
+2. Filter products based on the price and brands (make dropdown menu..)
+4. when search any product change the paginaton value based on the available items per page.
+3. Authentication to sign in using firebase 
+
+
+How to setup firebase in react js
+step 1 : Create the app firebase console 
+step 2 : For testing purpose use firebase service like real time database for testing purpose 
+        ```Choose "Start in Test mode" options for now.```
+
+
 import React, { useState } from "react";
 import { TfiEmail, TfiLock } from "react-icons/tfi";
 import { Button } from "../Styles/Button.style";
 import { LiaUserCircle } from "react-icons/lia";
-import { ErrorMessage, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import Loginlogo from "../Images/login-logo.png";
-import { useFirebaseAuth } from "../hooks/context/firebase";
-import { Link } from "react-router-dom";
 
 function Account() {
-  const { signUpUser, putUserData } = useFirebaseAuth();
-  
+
+  const [] = useState()
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -27,34 +39,20 @@ function Account() {
         .min(8, "Atleast 8 characters")
         .max(12, "Password must be less than 12!")
         .required("Required Field"),
+
       email: Yup.string().email("Invalid email").required("Required Field"),
     }),
     validate: (values) => {
-      const errors = {};
+      const error = {};
       if (!values.confirmPssd) {
-        errors.confirmPssd = "Required Field";
+        error.confirmPssd = "Required";
       } else if (values.confirmPssd !== values.password) {
-        errors.confirmPssd = "Password does not match";
+        error.confirmPssd = "Confirm Password should match";
       }
-      return errors;
+      return error;
     },
-    onSubmit: async () => {
-      try {
-        await signUpUser(
-          formik.values.email,
-          formik.values.password,
-          formik.values.username,
-          formik.values.confirmPssd
-        ).then(() => {
-          window
-            .open("/register", "_blank", "rel=noopener noreferrer")
-            .catch(() => {
-              alert("Something happened!");
-            });
-        });
-      } catch {
-        <ErrorMessage />;
-      }
+    onSubmit: (value) => {
+      console.log(value);
     },
   });
 
@@ -112,7 +110,7 @@ function Account() {
                       onBlur={formik.handleBlur}
                       value={formik.values.username}
                     />
-                    {!formik.touched.username && formik.errors.username ? (
+                    {formik.touched.username && formik.errors.username ? (
                       <p className="fieldmssg-error">
                         {formik.errors.username}
                       </p>
@@ -142,13 +140,13 @@ function Account() {
                     <input
                       type="password"
                       className="store-account__form-control-validation-text"
+                      value={formik.values.password}
                       placeholder="Password"
                       name="password"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.password}
                     />
-                    {!formik.touched.password && formik.errors.password ? (
+                    {formik.touched.password && formik.errors.password ? (
                       <p className="fieldmssg-error">
                         {formik.errors.password}
                       </p>
@@ -161,14 +159,13 @@ function Account() {
                     <input
                       type="password"
                       className="store-account__form-control-validation-text"
+                      value={formik.values.confirmPssd}
                       placeholder="Confirm Password"
                       name="confirmPssd"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.confirmPssd}
                     />
-                    {!formik.touched.confirmPssd &&
-                    formik.errors.confirmPssd ? (
+                    {formik.touched.confirmPssd && formik.errors.confirmPssd ? (
                       <p className="fieldmssg-error">
                         {formik.errors.confirmPssd}
                       </p>
@@ -177,18 +174,16 @@ function Account() {
                     )}
                   </div>
                   <div className="btn-red">
-                    <Link target="_blank">
-                      <Button
-                        bgColor="#383fdc"
-                        borderRadius="5px"
-                        color="white"
-                        padding="14px"
-                        fontSize="18px"
-                        type="submit"
-                      >
-                        Sign In
-                      </Button>
-                    </Link>
+                    <Button
+                      bgColor="#383fdc"
+                      borderRadius="5px"
+                      color="white"
+                      padding="14px"
+                      fontSize="18px"
+                      type="submit"
+                    >
+                      Sign In
+                    </Button>
                   </div>
                 </form>
               </div>

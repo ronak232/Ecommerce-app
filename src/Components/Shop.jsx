@@ -76,7 +76,7 @@ function Shop({
                               ? prod?.thumbnail
                               : prod?.images
                           }`}
-                          alt="images"
+                          alt={prod?.thumbnail}
                         />
                       </div>
                       <div className="products__list--cards-body">
@@ -94,26 +94,24 @@ function Shop({
                         </div>
 
                         <div className="products__list--cards-cart-btn">
-                          {ifProductPresent ? (
-                            <div>
-                              <button>+</button>
-                              <button>-</button>
-                            </div>
-                          ) : (
-                            <Button
-                              bgColor="#fe696a"
-                              width="100%"
-                              borderRadius="6px"
-                              boxShadow="0"
-                              padding="10px"
-                              onClick={() => handleAddProduct(prod)}
-                              fontSize="14px"
-                              color="white"
-                            >
-                              <FiShoppingCart className="cart" />
-                              Add to Cart
-                            </Button>
-                          )}
+                          <div style={{display:"none"}}>
+                            <button>+</button>
+                            <span>{}</span>
+                            <button>-</button>
+                          </div>
+                          <Button
+                            bgColor="#fe696a"
+                            width="100%"
+                            borderRadius="6px"
+                            boxShadow="0"
+                            padding="10px"
+                            onClick={() => handleAddProduct(prod)}
+                            fontSize="14px"
+                            color="white"
+                          >
+                            <FiShoppingCart className="cart" />
+                            Add to Cart
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -130,7 +128,9 @@ function Shop({
             {allProducts.map((_, index) => {
               return (
                 <button
-                  className={paginatePages === index? "active" :"page-btn__number"}
+                  className={
+                    paginatePages === index ? "active" : "page-btn__number"
+                  }
                   key={index}
                   onClick={() => handlePageChange(index)}
                 >

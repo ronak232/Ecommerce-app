@@ -1,6 +1,8 @@
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import paginate from "../utils/paginate";
 
 function FilterProduct({ setcartFilter, allProducts }) {
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   // To filter only the product categories
   const allCategories = [
@@ -24,28 +26,24 @@ function FilterProduct({ setcartFilter, allProducts }) {
   // This helps to optimize performance by preventing unnecessary re-creations of the function.
   const filterProductItems = useCallback(
     (category) => {
-      if (category === "all") {
-        const allProductsCombined = allProducts.reduce(
-          (acc, page) => acc.concat(page),
-          []
-        );
-        return setcartFilter(allProductsCombined);
+      if (category === selectedCategory) {
+        setSelectedCategory(null);
+        setcartFilter(allProducts.flat(5)); // Reset to default mapping data
+      } else {
+        const filterCategory = allProducts
+          ?.flat()
+          ?.filter((items) => items?.category === category);
+        setcartFilter(filterCategory);
+        setSelectedCategory(category);
       }
-      const filterCategory = allProducts
-        ?.flat()
-        ?.filter((items) => items?.category === category);
-      setcartFilter(filterCategory);
     },
     [allProducts, setcartFilter]
   );
 
-  const clearAllFilter  = () =>{
-   setcartFilter(allProducts)
-  }
-
-  useEffect(() => {
-    filterProductItems();
-  }, [filterProductItems]);
+  const clearAllFilter = () => {
+    setSelectedCategory(null);
+    setcartFilter(allProducts.flat(5));
+  };
 
   return (
     <aside className="products__filter">
@@ -69,9 +67,9 @@ function FilterProduct({ setcartFilter, allProducts }) {
         </div>
       </div>
       <div>
-       <button onClick={() => clearAllFilter()}>Clear Filter</button>
+        <button onClick={() => clearAllFilter()}>Clear Filter</button>
       </div>
-      <div className="products__filter-price">
+      {/* <div className="products__filter-price">
         <h1>Filter by Price</h1>
         <div className="product__filter-price--range">
           <input
@@ -82,7 +80,7 @@ function FilterProduct({ setcartFilter, allProducts }) {
             min={productPriceMinValue}
           />
         </div>
-      </div>
+      </div> */}
     </aside>
   );
 }

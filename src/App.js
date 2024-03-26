@@ -8,13 +8,14 @@ import Account from "./Pages/Account";
 import Blog from "./Pages/Blog";
 import Shop from "./Components/Shop";
 import Pages from "./Components/Pages";
-import Cart from "./ReuseComp/CartComponents/Cart";
+import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer";
 import Themetoggle from "./ReuseComp/DarkModeToggle/Themetoggle";
 import { ThemeContext } from "./hooks/ContextApi";
 import { useContext } from "react";
 import ProductDetails from "./Pages/ProductDetails";
 import paginate from "./utils/paginate";
+import UserRegistration from "./Pages/UserRegistration";
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -163,8 +164,10 @@ function App() {
               />
             }
           />
-        </Routes>
+          <Route path="/register" element={<UserRegistration/>}>
 
+          </Route>
+        </Routes>
         {<Footer />}
       </Router>
     </div>

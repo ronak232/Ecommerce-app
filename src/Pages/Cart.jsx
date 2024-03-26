@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../../Styles/Button.style";
+import { Button } from "../Styles/Button.style";
 import { SlArrowLeft } from "react-icons/sl";
-import { ThemeContext } from "../../hooks/ContextApi";
+import { ThemeContext } from "../hooks/ContextApi";
 
 function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
   const theme = useContext(ThemeContext);
@@ -58,6 +58,13 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                           ${products?.price}
                         </h5>
                       </div>
+                      <div className="cart-items-error-disclaimer">
+                        {products.quantity > products.stock ? (
+                          <p>Cannot be added more items</p>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                     </div>
 
                     <div className="cart-items-products-list-item-total">
@@ -71,7 +78,10 @@ function Cart({ cartItems, onRemove, handleIncrement, handleDecrement }) {
                         -
                       </Button>
 
-                      <span>{products?.quantity}</span>
+                      <span className="cart-items-quantity">
+                        {products?.quantity}
+                      </span>
+                      {/* <input className="cart-items-qty-number" type="text" min={1} max={products?.stock} /> */}
                       <Button
                         hover="grey"
                         padding="4px 10px"
