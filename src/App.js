@@ -16,6 +16,7 @@ import { useContext } from "react";
 import ProductDetails from "./Pages/ProductDetails";
 import paginate from "./utils/paginate";
 import UserRegistration from "./Pages/UserRegistration";
+import LoginUser from "./Pages/Login";
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -164,9 +165,8 @@ function App() {
               />
             }
           />
-          <Route path="/register" element={<UserRegistration/>}>
-
-          </Route>
+          <Route path="/register" element={<UserRegistration/>}/>
+          <Route path="/login" element={<LoginUser/>}/>
         </Routes>
         {<Footer />}
       </Router>

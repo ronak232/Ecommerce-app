@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TfiEmail, TfiLock } from "react-icons/tfi";
 import { Button } from "../Styles/Button.style";
 import { LiaUserCircle } from "react-icons/lia";
@@ -8,7 +8,7 @@ import Loginlogo from "../Images/login-logo.png";
 import { useFirebaseAuth } from "../hooks/context/firebase";
 import { Link } from "react-router-dom";
 
-function Account() {
+function LoginUser() {
   const { signUpUser, putUserData } = useFirebaseAuth();
 
   const formik = useFormik({
@@ -38,13 +38,13 @@ function Account() {
       }
       return errors;
     },
-    onSubmit: async (values, { resetForm }) => {
+    onSubmit: async () => {
       try {
         await signUpUser(
-          values.email,
-          values.password,
-          values.username,
-          values.confirmPssd
+          formik.values.email,
+          formik.values.password,
+          formik.values.username,
+          formik.values.confirmPssd
         ).then(() => {
           window
             .open("/register", "_blank", "rel=noopener noreferrer")
@@ -55,7 +55,6 @@ function Account() {
       } catch {
         <ErrorMessage />;
       }
-      resetForm();
     },
   });
 
@@ -76,22 +75,13 @@ function Account() {
                   or Login with :
                 </h3>
                 <div className="store-account__card-loginoptions">
-                  <button
-                    className="store-account__card-link-media bg-google"
-                    href="/"
-                  >
+                  <button className="store-account__card-link-media bg-google">
                     <i class="bg-grey fa-brands fa-google"></i>
                   </button>
-                  <button
-                    className="store-account__card-link-media bg-facebook"
-                    href="/"
-                  >
+                  <button className="store-account__card-link-media bg-facebook">
                     <i class="bg-grey fa-brands fa-facebook-f"></i>
                   </button>
-                  <button
-                    className="store-account__card-link-media  bg-twitter"
-                    href="/"
-                  >
+                  <button className="store-account__card-link-media  bg-twitter">
                     <i class="bg-grey fa-brands fa-twitter"></i>
                   </button>
                 </div>
@@ -101,26 +91,6 @@ function Account() {
                   className="store-account__form-control"
                   onSubmit={formik.handleSubmit}
                 >
-                  <p>Or Create using below</p>
-                  <div className="store-account__form-control-validation">
-                    <LiaUserCircle className="store-account__form-control-icons" />
-                    <input
-                      type="text"
-                      className="store-account__form-control-validation-text"
-                      placeholder="Username"
-                      name="username"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.username}
-                    />
-                    {!formik.touched.username && formik.errors.username ? (
-                      <p className="fieldmssg-error">
-                        {formik.errors.username}
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                  </div>
                   <div className="store-account__form-control-validation">
                     <TfiEmail className="store-account__form-control-icons" />
                     <input
@@ -157,48 +127,16 @@ function Account() {
                       ""
                     )}
                   </div>
-                  <div className="store-account__form-control-validation">
-                    <TfiLock className="store-account__form-control-icons" />
-                    <input
-                      type="password"
-                      className="store-account__form-control-validation-text"
-                      placeholder="Confirm Password"
-                      name="confirmPssd"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.confirmPssd}
-                    />
-                    {!formik.touched.confirmPssd &&
-                    formik.errors.confirmPssd ? (
-                      <p className="fieldmssg-error">
-                        {formik.errors.confirmPssd}
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                  <div className="btn-red">
-                    <Link target="_blank">
-                      <Button
-                        bgColor="#383fdc"
-                        borderRadius="5px"
-                        color="white"
-                        padding="14px"
-                        fontSize="18px"
-                        type="submit"
-                      >
-                        Sign In
-                      </Button>
-                    </Link>
+
+                  <div className="user-login">
+                    <span>
+                      Register With Us
+                      <Link to="/account">
+                        <Button>Sign Up</Button>
+                      </Link>
+                    </span>
                   </div>
                 </form>
-              </div>
-              <div className="user-registration">
-                <span>Already Register?
-                <Link to="/login">
-                  <Button>Register!</Button>
-                </Link>
-                </span>
               </div>
             </div>
           </div>
@@ -208,4 +146,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default LoginUser;

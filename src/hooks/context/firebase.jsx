@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, set, ref } from "firebase/database";
 import { createContext, useContext } from "react";
 
@@ -28,7 +28,9 @@ export const FirebaseProvider = ({ children }) => {
     return await createUserWithEmailAndPassword(
       firebaseAuth,
       email,
-      passowrd
+      passowrd,
+      confirmPssd,
+      username
     ).then((val) => {
       alert("Successfully!", val);
     });
@@ -38,6 +40,14 @@ export const FirebaseProvider = ({ children }) => {
   const putUserData = (key, data) => {
     set(ref(firebaseDatabase, key), data);
   };
+
+  const loginUser = async (email, passowrd) =>{
+      return await signInWithEmailAndPassword(firebaseAuth, email, passowrd).then()
+  }
+
+
+
+
   return (
     <FirebaseContext.Provider value={{ signUpUser, putUserData }}>
       {children}

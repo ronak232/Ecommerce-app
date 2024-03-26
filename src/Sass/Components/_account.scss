@@ -38,6 +38,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 12px;
       @include devices(tablet) {
         min-width: 550px;
       }
@@ -150,4 +151,32 @@
   font-weight: 400;
   font-family: $RobotoSlab;
   padding-top: 8px;
+}
+
+.user-registration {
+  border-top: 1px solid #4b566b;
+  padding-top: 1rem;
+  width: 100%;
+  span {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $RobotoSlab;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.user-login {
+  border-top: 1px solid #4b566b;
+  padding-top: 1rem;
+  width: 100%;
+  span {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $RobotoSlab;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 }
